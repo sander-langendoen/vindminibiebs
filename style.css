@@ -1,0 +1,50 @@
+/*
+ Theme Name:   Twenty Twenty-Four Child
+ Theme URI:    https://jouwdomein.nl
+ Description:  Child theme van Twenty Twenty-Four
+ Author:       Jouw naam
+ Author URI:   https://jouwdomein.nl
+ Template:     twentytwentyfour
+ Version:      1.0.0
+ Text Domain:  twentytwentyfour-child
+*/
+
+/* Hier kun je je eigen CSS toevoegen */
+
+body {
+  background: #f7f5ee;
+}
+
+header, footer {
+  background: #fff;
+}
+
+svg path {
+  transition: filter 0.3s ease;
+}
+
+svg path:hover {
+  filter: brightness(1.2); /* 1.2 = 20% lichter, 0.8 = 20% donkerder */
+}
+
+.home .entry-content {
+    padding-top: 48px;
+}
+
+.entry-content {
+  padding-bottom: 48px;
+}
+
+.custom-home-svg {
+    padding-top: 48px;
+}
+
+.home-columns {
+  display: flex;
+  padding-top: 48px;
+  align-items: center;
+
+  @media all and (max-width: 767px) {
+    flex-direction: column;
+  }
+}
