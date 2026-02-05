@@ -14,5 +14,13 @@ function twentytwentyfour_child_enqueue_styles() {
         array('twentytwentyfour-style'),
         wp_get_theme()->get('Version')
     );
+
+    wp_enqueue_script(
+        'custom',
+        get_stylesheet_directory_uri() . '/custom.js',
+        [],
+        '1.0',
+        true
+    );
 }
 add_action('wp_enqueue_scripts', 'twentytwentyfour_child_enqueue_styles');
