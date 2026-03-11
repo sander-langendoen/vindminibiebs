@@ -1,0 +1,40 @@
+.wp-block-categories-list {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 48px;
+    
+
+    .cat-item {
+        display: block;
+        padding: .625rem .9375rem;
+        font-size: 1rem;
+        line-height: 1.25;
+        transition: background-color .3s;
+        position: relative;
+        background-color: var(--color-brand-2);
+        max-width: 220px;
+        transition: all 0.3s;
+
+        &:hover,
+        &:active {
+            opacity: 0.9;
+        }
+
+        a {
+            color: var(--color-white);
+            display: block;
+            text-decoration: none;
+        }
+    }
+}
+
+.single-sidebar-heading {
+    color: var(--color-brand-3);
+    text-transform: uppercase;
+    font-size: 1.125rem;
+    line-height: 1.666666667;
+    padding-bottom: 1rem;
+}

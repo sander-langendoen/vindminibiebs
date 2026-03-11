@@ -1,0 +1,372 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+// MOBILE NAV
+@include md-down {
+    .nav-mobile {
+        position: fixed;
+        top: 0;
+        left: -$mobile-nav-width;
+        width: $mobile-nav-width;
+        background-color: var(--color-brand-3);
+        min-height: 100vh;
+        max-height: 100vh;
+        transition: $animation-secondary;
+        transition-property: left;
+        z-index: 500; // needed for the overlay laying behind the nav but under the header
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        ul.nav-list {
+            z-index: 101; // one index more then general overlay of 100
+        }
+
+        .nav-heading {
+            background-color: var(--color-brand-1);
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-container {
+            flex: 0 1 auto;
+            padding-left: 24px;
+            max-width: 160px;
+            
+            a {
+                display: flex;
+            }
+
+            svg {
+                width: auto;
+            }
+        }
+
+        .close-icon-container {
+            margin-right: $spacing-03;
+            cursor: pointer;
+            flex: 0 1 auto;
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            right: 0;
+            height: 44px; // min. clickable area for Lighthouse accessibility
+            width: 44px;
+
+            svg {
+                width: 20px;
+                height: 23px;
+            }
+        }
+
+        path {
+            fill: var(--color-white);
+        }
+    
+        .sub-menu {
+            visibility: hidden;
+            max-height: 0;
+            opacity: 0;
+            transition: all 0.5s;
+        }
+
+        .child-list-open + .sub-menu {
+            visibility: visible;
+            max-height: 4000px;
+            opacity: 1;
+            padding-left: $spacing-05; // FE: needs rework, just for workable dev env
+            transition-duration: 1.2s;
+            transition-property: max-height, opacity;
+        }
+
+        ul.nav-primary {
+            flex-direction: column;
+            align-items: flex-start;
+            padding-left: 0px;
+            padding-top: 24px;
+
+            li {
+                border-bottom: 1px solid var(--color-white);
+                display: block;
+                width: 100%;
+
+                &:last-child {
+                    border: none;
+                }
+            }
+
+            a { // rest of it lives in general styling nav
+                color: var(--color-white);
+                display: block;
+                width: 100%;
+                height: 57px;
+                display: flex;
+                align-items: center;
+                padding-left: $spacing-04;
+                position: relative; // needed for absolute positioning after element
+                text-decoration: none;
+                font-size: 16px;
+            }
+        }
+
+        li.current-menu-item {
+            background-color: var(--color-white);
+            a {
+                color:var(--color-brand-1);
+            }
+        }
+
+        li.menu-item-has-children {
+            a {
+                position: relative;
+                // &:after {
+                //     content: "";
+                //     position: absolute;
+                //     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg height='32' width='32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.626.293A1 1 0 017.96.22l.081.073 14.293 14.292a2 2 0 01.1 2.723l-.098.104L8.04 31.707a1 1 0 01-1.487-1.333l.073-.081L20.92 15.999 6.626 1.707A1 1 0 016.553.374z' fill='%23ffffff' fill-rule='evenodd'/%3E%3C/svg%3E");
+                //     background-size: 16px;
+                //     background-repeat: no-repeat;
+                //     height: 16px;
+                //     width: 16px;
+                //     top: 50%;
+                //     transform: translateY(-50%);
+                //     right: $spacing-04 * 2; // it would be just once spacing-04, but the parent nav-item has a padding which it needs to be fully clickable (so margin wont work)
+                //     transition: transform 0.3s;
+                // }
+
+                // &.child-list-open:after {
+                //     transform: translateY(-50%) rotate(90deg);
+                // }
+            }
+
+            .sub-menu {
+                li {
+                    width: 100%;
+                    padding-left: 20px;
+                }
+
+                a:after {
+                    background: none;
+                    content: none;
+                }
+            }
+        }
+
+        ul.nav-primary li.menu-item-has-children {
+            position: relative;
+
+            > a {
+                padding-right: 72px;
+            }
+
+            > button.submenu-toggle {
+                display: block;            
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 57px;
+                height: 57px;
+                min-width: 57px;
+                min-height: 57px;
+
+                padding: 0;
+                border: 0;
+                background: transparent;
+                cursor: pointer;
+
+                // als je ergens "all: unset" hebt, zet dit expliciet:
+                appearance: none;
+                -webkit-appearance: none;
+            }
+
+            > button.submenu-toggle::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: 24px;
+                transform: translateY(-50%);
+                width: 16px;
+                height: 16px;
+
+                background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg height='32' width='32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.626.293A1 1 0 017.96.22l.081.073 14.293 14.292a2 2 0 01.1 2.723l-.098.104L8.04 31.707a1 1 0 01-1.487-1.333l.073-.081L20.92 15.999 6.626 1.707A1 1 0 016.553.374z' fill='%23ffffff' fill-rule='evenodd'/%3E%3C/svg%3E");
+                background-size: 16px;
+                background-repeat: no-repeat;
+                transition: transform 0.3s;
+            }
+
+            &.current-menu-item {
+                > button.submenu-toggle::before {
+                    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg height='32' width='32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.626.293A1 1 0 017.96.22l.081.073 14.293 14.292a2 2 0 01.1 2.723l-.098.104L8.04 31.707a1 1 0 01-1.487-1.333l.073-.081L20.92 15.999 6.626 1.707A1 1 0 016.553.374z' fill='%23008ece' fill-rule='evenodd'/%3E%3C/svg%3E");
+                }
+            }
+
+            > a.child-list-open + button.submenu-toggle::before {
+                transform: translateY(-50%) rotate(90deg);
+            }
+        }
+
+        .sub-menu {
+            visibility: hidden;
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.3s ease, opacity 0.5s ease;
+        }
+
+        a.child-list-open ~ .sub-menu {
+            visibility: visible;
+            max-height: 4000px;
+            opacity: 1;
+            padding-left: 0px;
+        }
+
+    } // end nav-mobile
+
+    // general stuff concerning the nav-mobile triggers
+    .mobile-nav-active {
+        .nav-mobile {
+            left: 0;
+        }
+        main,
+        header,
+        footer {
+            left: $mobile-nav-width;
+        }
+
+        header {
+            z-index: 90; // slightly lower, since the overlay is active during mobile-nav-active
+        }
+
+        span.menu-icon-container { // lives outside the nav-mobile, within the header but it concerns this mobile nav
+            right: $mobile-nav-width + 4vw;
+            transition-property: left;
+            transition: $animation-secondary;
+        }
+    }
+
+    main,
+    header,
+    footer {
+        position: relative;
+        left: 0
+    }
+
+    .nav-mobile,
+    main,
+    header,
+    footer,
+    span.menu-icon-container {
+        transition-property: left;
+        transition: $animation-secondary;
+    }
+
+    span.menu-icon-container { // lives outside the nav-mobile, within the header but it concerns this mobile nav
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 20px;
+        z-index: 41;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        svg {
+            width: 24px;
+        }
+
+        span {
+            color: var(--color-white);
+            font-weight: 700;
+
+            padding-left: $spacing-03;
+
+            @include xxs-only {
+                display: none; // that becomes too narrow
+            }
+        }
+    }
+}
+
+.nav-mobile__extras {
+    padding: 16px 20px;
+    border-top: 1px solid rgba(0,0,0,.15);
+
+    @include md-down {
+        .nav-mobile path {
+            fill: var(--color-brand-1);
+        }
+    }
+
+    .nav-mobile__search-input {
+        width: calc(100% + 44px);
+    }
+}
+
+.nav-mobile__language-list {
+    display: flex;
+    gap: 10px;
+    margin: 0 0 14px;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-mobile__language-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    min-width: 44px;
+    padding: 0 12px;
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+.nav-mobile__language-item:not(:last-child)::after {
+    content: "/";
+    color: var(--color-white);
+}
+
+.nav-mobile__language-item.is-active .nav-mobile__language-link {
+    border-color: rgba(0,0,0,.6);
+}
+
+.nav-mobile__language-item.is-active {
+    .nav-mobile__language-link {
+        font-family: 'UniversBold';
+    }
+}
+
+.nav-mobile__search-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.nav-mobile__search-input {
+    flex: 1 1 auto;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid rgba(0,0,0,.2);
+    font-size: 14px;
+}
+
+.nav-mobile__search-submit {
+    height: 44px;
+    width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    left: -48px;
+}
+
+@include md-down {
+    .nav-mobile .close-icon-container path {
+        fill: var(--color-white);
+    }
+}
+

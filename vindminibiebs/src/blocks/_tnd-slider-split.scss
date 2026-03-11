@@ -1,0 +1,125 @@
+@use "../abstracts/mixins" as *;
+
+.tnd-slider {
+  &__inner {
+    display: block;
+  }
+
+  &__media {
+    position: relative;
+    overflow: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-white);
+    &:before {
+      content: none;
+    }
+  }
+
+  h2 {
+    font-size: 2.5rem;
+
+    @include sm-down {
+      font-size: 1.75rem;
+    }
+  }
+
+  // Swiper krijgt “iets” om 100% hoogte van te pakken
+  &__swiper {
+    width: 100%;
+  }
+
+  .swiper-wrapper,
+  .swiper-slide {
+    height: 100%;
+  }
+
+  &__slide-inner {
+    width: 100%;
+    height: 100%;
+  }
+
+  // Full slide: vaste min-height zodat cover “mooi” werkt
+  &__slide-inner--full {
+    min-height: 520px;
+    max-height: 520px;
+
+    @media (max-width: 767px) {
+      min-height: 320px;
+    }
+  }
+
+  // Split slide: content + image naast elkaar, en altijd gelijke hoogte
+  &__slide-inner--split {
+    display: flex;
+    flex-direction: column;
+    min-height: 520px;
+    max-height: 520px;
+
+    @media (max-width: 767px) {
+      min-height: 320px;
+    }
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: stretch;
+    }
+  }
+
+  &__content {
+    background: var(--tnd-slider-bg, #f1b300);
+    padding: 3rem 5rem;
+
+    @media (min-width: 768px) {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+
+  &__image-wrap {
+    position: relative;
+
+    @media (min-width: 768px) {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+
+  // Per-slide order
+  &__slide--image-left {
+    .tnd-slider__image-wrap { order: 1; }
+    .tnd-slider__content    { order: 2; }
+  }
+
+  &__slide--image-right {
+    .tnd-slider__image-wrap { order: 2; }
+    .tnd-slider__content    { order: 1; }
+  }
+
+  // Afbeelding altijd “cover” binnen zijn container
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__heading,
+  &__text p {
+    color: var(--color-white);
+  }
+
+  &__heading:before {
+    background-color: var(--color-white);
+  }
+
+  &__text {
+    padding-bottom: 32px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: var(--color-white);
+  }
+}

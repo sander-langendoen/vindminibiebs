@@ -1,0 +1,65 @@
+.tnd-benefit-grid {
+  &__inner {
+    padding: 4rem 0;
+  }
+
+  &__grid {
+    display: grid;
+    gap: 3.5rem 5rem;
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__line {
+    display: inline-block;
+    width: 64px;
+    height: 3px;
+    background-color: var(--color-brand-1);
+    margin-bottom: 14px;
+  }
+
+  &__title {
+    margin: 0 0 10px;
+    font-size: 1.6rem;
+    color: var(--color-brand-1);
+  }
+
+  &__text {
+    line-height: 1.6;
+  }
+
+  &__text.has-link {
+    min-height: 150px;
+  }
+
+  &__link {
+    color: var(--color-brand-1);
+    text-decoration: underline;
+    transition: color .2s;
+
+    &:hover,
+    &:focus {
+        color: var(--color-brand-2);
+    }
+  }
+
+  /* 2 kolommen (default) */
+  &--cols-2 {
+    @media (min-width: 768px) {
+      .tnd-benefit-grid__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  }
+
+  /* 3 kolommen */
+  &--cols-3 {
+    @media (min-width: 992px) {
+      .tnd-benefit-grid__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+  }
+}

@@ -1,0 +1,120 @@
+@use "../abstracts/mixins" as *;
+
+footer {
+    margin-top: 0;
+}
+
+.site-footer {
+    @include section-padding();
+    background-color: var(--color-brand-3);
+
+    h2:before {
+        content: none;
+    }
+
+    &__grid {
+        display: flex;
+        gap: 6rem;
+        flex-wrap: wrap;
+
+        @include sm-down {
+            flex-direction: column;
+            gap: 2rem;
+        }
+    }
+
+    &__col {
+        flex: 1 1 180px;
+        min-width: 180px;
+
+        &--brand {
+            flex: 1.5 1 280px; // <-- eerste kolom breder
+            min-width: 260px;
+
+            @include sm-down {
+                flex: none;
+            }
+        }
+
+        @include sm-down {
+            flex: none;
+        }
+    }
+
+    &__title {
+        margin: 0 0 .75rem;
+        color: var(--color-white);
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1.125rem;
+        line-height: 1.666666667;
+    }
+
+    &__menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li + li { margin-top: .15rem; }
+    }
+
+    &__desc {
+        margin: 2rem 0 0;
+    }
+
+    &__address {
+        padding-bottom: 32px;
+    }
+
+    &__desc,
+    &__address p,
+    p {
+        color: var(--color-white);
+    }
+
+    .tnd-share__link {
+        width: 30px;
+        height: 30px;
+        border-radius: 999em;
+        background: var(--color-white);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        color: var(--color-white);
+        transition: background .2s;
+
+        &:hover {
+            background: var(--color-brand-2);
+        }
+
+        svg {
+            margin: -10px;
+            align-self: stretch;
+        }
+
+        path {
+            fill: var(--color-brand-3);
+        }
+    }
+
+    .site-footer__menu {
+        padding-bottom: 32px;
+
+        a {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: var(--color-white);
+            text-decoration: none;
+            transition: color .2s;
+
+            &:hover {
+                color: var(--color-brand-2);
+            }
+        }
+    }
+
+    &__copyright {
+        padding-top: 48px;
+    }
+}

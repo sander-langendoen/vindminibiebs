@@ -1,0 +1,428 @@
+/* Theme frontend styles */
+
+@use "src/abstracts/variables";
+@use "src/abstracts/mixins";
+@use "src/abstracts/animations";
+@use "src/abstracts/visibility";
+@use "src/abstracts/typography";
+@use "src/abstracts/helpers";
+@use "src/abstracts/reset";
+
+// @use "src/base/mixins"; 
+
+
+// 1. Variabelen & helpers
+// @use "src/base/variables";
+// @import "src/base/mixins";
+@use "src/base/headings";
+@use "src/base/breadcrumbs";
+@use "src/base/buttons";
+@use "src/base/blockquote";
+@use "src/base/iframe";
+
+// 2. Layout & structuur
+// @import "src/layout/grid";
+// @import "src/layout/spacing";
+@use "src/layout/header";
+@use "src/layout/footer";
+// @use "src/layout/navigation";
+@use "src/layout/nav-mobile";
+@use "src/layout/nav-primary";
+
+
+// 3. Componenten
+// @import "src/components/buttons";
+// @import "src/components/forms";
+// @import "src/components/cards";
+@use "src/components/overlay";
+@use "src/components/forms";
+@use "src/components/tnd-social-share";
+@use "src/components/categories";
+
+
+// 4. Blocks (core + custom)
+// @import "src/blocks/core";
+@use "src/blocks/tnd-hero-heading";
+@use "src/blocks/tnd-hero-overlay";
+@use "src/blocks/tnd-contact-block";
+@use "src/blocks/tnd-map-block";
+@use "src/blocks/tnd-highlight-cards";
+@use "src/blocks/tnd-split-content";
+@use "src/blocks/tnd-media-highlight";
+@use "src/blocks/tnd-client-logos";
+@use "src/blocks/tnd-expertise-grid";
+@use "src/blocks/tnd-intro-block";
+@use "src/blocks/tnd-blog-cases";
+@use "src/blocks/tnd-related-cases";
+@use "src/blocks/tnd-slider-split";
+@use "src/blocks/tnd-benefit-grid";
+@use "src/blocks/tnd-vacancy-cards";
+
+
+// 5. Pagina’s
+@use "src/pages/home";
+@use "src/pages/single";
+@use "src/pages/page-404";
+@use "src/pages/over-ons";
+@use "src/pages/single-case-blog";
+@use "src/pages/search";
+@use "src/pages/page-events";
+
+
+.wp-block-heading,
+p,
+.yoast-breadcrumbs,
+.wp-block-list,
+.wp-block-table,
+.frm_style_formidable-style.with_frm_style form,
+.wp-block-table {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-block-table {
+  margin: 0 auto !important;
+}
+
+.wp-block-list,
+.wp-block-table {
+  padding-bottom: 2.5rem;
+}
+
+:where(.wp-block-group.is-layout-constrained) {
+  overflow: visible;
+}
+
+
+body {
+  font-family: "Univers",sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.666666667;
+  color: var(--color-text-secondary);
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+strong {
+  font-family: "UniversBold";
+}
+
+p {
+  margin-top: 0;
+  padding-bottom: 2.5rem;
+  color: var(--color-text-secondary);
+  line-height: 1.666666667;
+}
+
+p:last-child {
+  padding-bottom: 0;
+}
+
+.tnd-single-layout {
+  p a:not(.tnd-single-sidebar__cat):not(.tnd-share-btn) {
+    color: var(--color-brand-1);
+    transition: 0.2s ease color;
+
+    &:hover {
+      color: var(--color-brand-2);
+    }
+  }
+}
+
+.wp-block-group p a {
+  color: var(--color-brand-1);
+  transition: 0.2s ease color;
+  
+  &:hover {
+    color: var(--color-brand-2);
+  }
+}
+
+.tnd-content,
+.entry-content,
+.tnd-single-layout__body {
+
+  ol,
+  ul {
+    margin: 1.5rem 0 2rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  li {
+    &:before {
+      padding-right: 12px;
+    }
+    margin-bottom: 0.05rem;
+    line-height: 1.6;
+    font-size: 1.125rem;
+  }
+
+  ul ul {
+    padding-left: 20px;
+    margin-top: 6px;
+  }
+
+  /* ---------- ORDERED LIST ---------- */
+  ol {
+    counter-reset: tnd-counter;
+
+    li {
+      counter-increment: tnd-counter;
+
+      &::before {
+        content: counter(tnd-counter) ".";
+        min-width: 1.75rem;
+        color: var(--color-brand-1);
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  /* ---------- UNORDERED LIST ---------- */
+  ul li::before {
+    content: "•";
+    min-width: 1.75rem;
+    color: var(--color-brand-1);
+    font-size: 1.25rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  /* ---------- TEXT STYLES ---------- */
+  li strong {
+    font-weight: 600;
+    color: var(--color-grey-900);
+  }
+
+  li a {
+    color: var(--color-brand-1);
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+::marker {
+    color: var(--color-brand-1);
+}
+
+
+:root :where(p) {
+  color: var(--color-text-secondary);
+}
+
+:root :where(.is-layout-flow) > * {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+:root :where(.wp-block-group) {
+  padding: 0;
+}
+
+img,
+iframe {
+    display: block;
+}
+
+main {
+  padding-top: 120px;
+
+  @media all and (max-width: 1023px) {
+    padding-top: 80px;
+  }
+}
+
+/* general stuff */
+/* Achtergronden */
+.tnd-bg--ffffff       { background-color: var(--color-white) }
+.tnd-bg--F0F0F4  { background-color: #F0F0F4; }
+.tnd-bg--f1b300      { background-color: var(--color-brand-2) }
+.tnd-bg--008ece         { background-color: var(--color-brand-1);}
+
+/* Tekstkleuren */
+.tnd-text--white { color: #ffffff; }
+.tnd-text--black { color: #000000; }
+.tnd-text--grey  { color: #5B5B66; }
+
+/* Zorg dat alle content meeverft */
+.tnd-hero-heading.tnd-text--white * { color: var(--color-white) }
+.tnd-hero-heading.tnd-text--black * { color: var(--color-black) }
+.tnd-hero-heading.tnd-text--grey  * { color: var(--color-text-secondary); }
+
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 990px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 991px;
+  }
+
+  .narrow {
+    max-width: 670px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 992px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+
+.wp-block-group:has(.narrow) {
+    max-width: 1140px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container.container-wide {
+  max-width: 1440px;
+}
+
+:root :where(.is-layout-flex) {
+    gap: 0px;
+}
+
+
+.anchor-full-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.mb-sm {
+  margin-bottom: 32px !important;
+}
+.mb-xl {
+  margin-bottom: 72px !important;
+}
+.mt-sm {
+  margin-top: 32px !important;
+}
+.mt-xl {
+  margin-top: 72px !important;
+}
+
+.pb-sm {
+  padding-bottom: 32px !important;
+}
+
+.pb-md {
+  padding-bottom: 48px !important;
+}
+.pb-lg {
+  padding-bottom: 56px !important;
+}
+.pb-xl {
+  padding-bottom: 72px !important;
+}
+.pt-sm {
+  padding-top: 32px !important;
+}
+.pt-xl {
+  padding-top: 72px !important;
+}
+
+
+/* remove admin bar on mobile */
+@media (max-width: 782px) {
+  #wpadminbar {
+    display: none !important;
+  }
+
+  html {
+    margin-top: 0 !important;
+  }
+}
+
+
+
+
+/* padding for mobile and such */
+@media (max-width: 767px) {
+  .tnd-hero-heading__content,
+  .tnd-client-logos,
+  .tnd-expertise-grid,
+  .tnd-page-cta,
+  .breadcrumbs,
+  .wp-block-group.narrow,
+  .tnd-highlight-cards,
+  .site-footer__inner,
+  .tnd-article,
+  .tnd-articles-grid__filter,
+  .tnd-benefit-grid,
+  .tnd-vacancy-cards,
+  .tnd-related-cases__title,
+  .tnd-single-layout__content,
+  .tnd-single-layout__sidebar,
+  .tnd-container,
+  .frm_forms.frm_style_formidable-style.with_frm_style,
+  .tnd-events-grid,
+  .tnd-events__intro h1 {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+}
+
+
+/* editor stuff */
+h1.wp-block.wp-block-post-title.block-editor-block-list__block.editor-post-title.editor-post-title__input.rich-text,
+.editor-post-card-panel__title,
+.edit-post-meta-boxes-area #poststuff .stuffbox>h3, .edit-post-meta-boxes-area #poststuff h2.hndle, .edit-post-meta-boxes-area #poststuff h3.hndle,
+#editor .postbox>.postbox-header .hndle {
+  font-family: -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif !important;
+  font-weight: bold;
+  color: var(--color-black);
+
+  &:before {
+    content: none !important;
+  }
+}
+
+h1.wp-block.wp-block-post-title.block-editor-block-list__block.editor-post-title.editor-post-title__input.rich-text {
+    font-size: 28px;
+}
+
+body#tinymce {
+  padding: 20px;
+}
+
+.editor-styles-wrapper.block-editor-writing-flow {
+    padding: 0 48px;
+}
+
+:where(.editor-styles-wrapper) .wp-block-group:has(.narrow) {
+  padding: 0 24px;
+}
+/* end editor stuff */
+
+
+.otgs-development-site-front-end {
+    display: none !important;
+}

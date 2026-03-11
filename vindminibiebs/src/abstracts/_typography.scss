@@ -1,0 +1,48 @@
+/* Fonts
+========================================================================== */
+/* stylelint-disable */
+@font-face {
+    font-display: swap;
+    font-family: 'Univers';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/wp-content/themes/thenextdigitals/assets/fonts/UniversRegular.woff2') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'UniversLight';
+    font-style: normal;
+    font-weight: 300;
+    src: url('/wp-content/themes/thenextdigitals/assets/fonts/UniversLight.woff2') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'UniversBold';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/wp-content/themes/thenextdigitals/assets/fonts/Univers-Bold.woff') format('woff');
+}
+
+// @font-face {
+//     font-display: swap;
+//     font-family: 'Univers';
+//     font-style: bold;
+//     font-weight: 700;
+//     src: url('/wp-content/themes/thenextdigitals/assets/fonts/UniversBold.woff2') format('woff2');
+// }
+
+// @font-face {
+//     font-display: swap;
+//     font-family: 'Ubuntu';
+//     font-style: normal;
+//     font-weight: 400;
+//     src: url('/wp-content/themes/kleefaan/includes/fonts/ubuntu-regular.woff2') format('woff2'),
+//     url('/wp-content/themes/kleefaan/includes/fonts/ubuntu-regular.woff') format('woff');
+// }
+
+:root {
+    // Typography
+    --font-univers: "Univers", system-ui, -apple-system, sans-serif;
+}

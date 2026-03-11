@@ -1,0 +1,25 @@
+@use "../abstracts/mixins" as *;
+
+.tnd-media-highlight {
+  @include section-padding();
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  @media (min-width: 768px) {
+    &__media {
+      padding-top: 40.625%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+
+      width: 100%;
+    }
+  }
+}

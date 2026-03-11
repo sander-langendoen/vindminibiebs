@@ -1,0 +1,175 @@
+@use "../abstracts/variables" as *;
+
+@mixin section-padding() {
+  padding:  2.5rem 0 !important;
+
+  @media (min-width: 576px) {
+      padding: 3.125rem 0 !important;
+  }
+
+  @media (min-width: 768px) {
+      padding: 5rem 0 !important;
+  }
+}
+
+@mixin section-padding-bottom() {
+  padding-bottom: 2.5rem !important;
+
+  @media (min-width: 576px) {
+      padding-bottom: 3.125rem !important;
+  }
+
+  @media (min-width: 768px) {
+      padding-bottom: 5rem !important;
+  }
+}
+
+.section-padding-bottom {
+  padding-bottom: 2.5rem !important;
+
+  @media (min-width: 576px) {
+      padding-bottom: 3.125rem !important;
+  }
+
+  @media (min-width: 768px) {
+      padding-bottom: 5rem !important;
+  }
+}
+
+// media queries //
+
+/* Vars taken from variables page 
+* $xxs: 320px; 
+* $xs: 414px;
+* $sm: 600px;
+* $md: 768px;
+* $lg: 1024px;
+* $xl: 1440px;
+
+* It's a mobile first approach, so we style first mobile and we see what needs to be done for desktop 
+
+*/
+
+// there's no xxs-up - because this is the default styling
+
+@mixin xxs-up { // this is pretty much everything, but sometimes you need it to overwrite a function
+    @media screen and (min-width: $xxs) { // iphone 4/5 - $xxs: 320px; 
+        @content;
+    }
+}
+
+@mixin xxs-only { // it could be 1px until up to xs
+    @media screen and (max-width: $xs - 1px) { // iphone 4/5 - $xxs: 320px; 
+        @content;
+    }
+}
+
+@mixin xs-up { // everyhting up from xs - $xs: 414px;
+    @media screen and (min-width: $xs) {
+        @content;
+    }
+}
+
+@mixin xs-only { // very specific everyhting up from xs until sm - $xs: 414px;
+    @media screen and (min-width: $xs) and (max-width: $sm - 1px) {
+        @content;
+    }
+}
+
+@mixin xs-down { // $xs: 414px;
+    @media screen and (max-width: $sm - 1px) {
+        @content;
+    }
+}
+
+@mixin sm-up { // $sm: 600px;
+    @media screen and (min-width: $sm) {
+        @content;
+    }
+}
+
+@mixin sm-only { // $sm: 600px;
+    @media screen and (min-width: $sm) and (max-width: $md - 1px) {
+        @content;
+    }
+}
+
+@mixin sm-down { // $sm: 600px;
+    @media screen and (max-width: $md - 1px) {
+        @content;
+    }
+}
+
+@mixin md-up { // $md: 768px;
+    @media screen and (min-width: $md) {
+        @content;
+    }
+}
+
+@mixin md-only { // $md: 768px;
+    @media screen and (min-width: $md) and (max-width: $lg - 1px) {
+        @content;
+    }
+}
+
+@mixin md-down { // $md: 768px;
+    @media screen and (max-width: $lg - 1px) {
+        @content;
+    }
+}
+
+@mixin lg-up { // $lg: 1024px;
+    @media screen and (min-width: $lg) {
+        @content;
+    }
+}
+
+@mixin lg-only { // $lg: 1024px;
+    @media screen and (min-width: $lg) and (max-width: $xl - 1px) {
+        @content;
+    }
+}
+
+@mixin lg-down { // $lg: 1024px;
+    @media screen and (max-width: $xl - 1px) {
+        @content;
+    }
+}
+
+@mixin xl-up {  // $xl: 1440px;
+    @media screen and (min-width: $xl) {
+        @content;
+    }
+}
+
+// there's no xl-only or xl down.
+
+
+// add a hidden scrollbar to containers such as lists
+@mixin hiddenscrollbar {
+    overflow-x: auto;
+    -ms-overflow-style: none;  // IE 10+ - FE: needs testing
+    overflow-x: -moz-scrollbars-none;  // Firefox - FE: needs testing
+    scrollbar-width: none; // for moz
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+        width: 0px;  // Remove scrollbar space - FE: check browser compatibility
+        background: transparent;  // FE: check browser compatibility
+    }
+
+    .section-button-container {
+        display: none;
+    }
+}
+
+
+@mixin vishidden() {
+    position: absolute!important;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    clip: rect(1px,1px,1px,1px)
+}

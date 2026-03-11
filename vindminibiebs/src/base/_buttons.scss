@@ -1,0 +1,165 @@
+@use "../abstracts/mixins" as *;
+
+.tnd-btn.tnd-btn--primary,
+.tnd-btn.tnd-btn--ghost.tnd-page-cta__button,
+.tnd-btn.tnd-btn--ghost,
+.wp-block-button__link.wp-element-button,
+.tnd-btn.tnd-btn--primary,
+.tnd-btn.tnd-btn--ghost.tnd-page-cta__button,
+.tnd-btn.tnd-btn--ghost,
+.frm_style_formidable-style.with_frm_style button.frm_button_submit.frm_final_submit,
+#calculate {
+    color: var(--color-white);
+    border-color: var(--color-white);
+    border-radius: 0;
+    
+    text-transform: uppercase;
+    transition: color .2s;
+    position: relative;
+    z-index: 2;
+    text-decoration: none !important;
+    cursor: pointer;
+
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border-width: 1px;
+    border-style: solid;
+    padding: 1rem 1.25rem .875rem;
+    font-size: 1.125rem;
+    line-height: 1.555555556;
+    transition: transform .3s;
+
+    &:after {
+        content: "";
+        width: 50px;
+        height: 13px;
+        margin-left: 20px;
+        vertical-align: middle;
+        transform: translateY(-2px);
+        color: var(--color-white);
+        background: no-repeat right center;
+        background-size: auto;
+        background-size: 2881px 2881px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2882.4 2882.4' class='gw-icon' fill='none' stroke='%23FFF'%3E%3Cpath d='M1441.2 2881.7L.7 1441.2 1441.2.7l1440.5 1440.5-1440.5 1440.5zM.7 1441.2h2881M1441.2 2881.7V.7' fill='none' stroke='%23FFF' stroke-miterlimit='10' /%3E%3C/svg%3E");
+        transition: opacity .2s;
+        display: inline-block;
+
+        @include sm-down {
+            content: none;
+        }
+    }
+
+
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        transform-origin: left center;
+        transform: scaleX(0);
+        transition: transform .3s;
+        pointer-events: none;
+        background-color: var(--color-white);
+    }
+
+    &:hover {
+        color: var(--color-brand-1);
+        transition: transform .3s;
+    }
+
+    &:hover:before {
+        transform: scaleX(1);
+        transition: transform .3s;
+    }
+
+    &:hover::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2882.4 2882.4' class='gw-icon' fill='none' stroke='%23008ECE'%3E%3Cpath d='M1441.2 2881.7L.7 1441.2 1441.2.7l1440.5 1440.5-1440.5 1440.5zM.7 1441.2h2881M1441.2 2881.7V.7' fill='none' stroke='%23008ECE' stroke-miterlimit='10' /%3E%3C/svg%3E");
+        transition: background 0.3s;
+    }
+}
+
+
+.tnd-btn.tnd-btn--ghost,
+.frm_style_formidable-style.with_frm_style button.frm_button_submit.frm_final_submit,
+#calculate {
+    color: var(--color-brand-1);
+    border-color: var(--color-brand-1);
+    padding: .4375rem .9375rem;
+    font-size: 0.9375rem;
+    line-height: 1.733333333;
+
+    &:after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2882.4 2882.4' class='gw-icon' fill='none' stroke='%23008ECE'%3E%3Cpath d='M1441.2 2881.7L.7 1441.2 1441.2.7l1440.5 1440.5-1440.5 1440.5zM.7 1441.2h2881M1441.2 2881.7V.7' fill='none' stroke='%23008ECE' stroke-miterlimit='10' /%3E%3C/svg%3E");
+    }
+}
+
+.tnd-expertise-card .tnd-btn.tnd-btn--ghost:hover {
+    color: var(--color-white);
+    border-color: var(--color-brand-1);
+    transition: all 0.2s ease;
+
+    &:before {
+        background-color: var(--color-brand-1);
+        transition: all 0.2s ease;
+    }
+
+    &:after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2882.4 2882.4' class='gw-icon' fill='none' stroke='%23008ECE'%3E%3Cpath d='M1441.2 2881.7L.7 1441.2 1441.2.7l1440.5 1440.5-1440.5 1440.5zM.7 1441.2h2881M1441.2 2881.7V.7' fill='none' stroke='%23ffffff' stroke-miterlimit='10' /%3E%3C/svg%3E");
+        transition: background 0.3s;
+    }
+}
+
+.frm_style_formidable-style.with_frm_style button.frm_button_submit.frm_final_submit {
+    font-family: "Univers";
+}
+
+ .wp-block-button__link.wp-element-button {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-brand-1);
+    color: var(--color-brand-1);
+
+    &:before {
+        background-color: var(--color-brand-1);
+    }
+
+    &:after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2882.4 2882.4' class='gw-icon' fill='none' stroke='%23008ECE'%3E%3Cpath d='M1441.2 2881.7L.7 1441.2 1441.2.7l1440.5 1440.5-1440.5 1440.5zM.7 1441.2h2881M1441.2 2881.7V.7' fill='none' stroke='%23008ECE' stroke-miterlimit='10' /%3E%3C/svg%3E");
+    }
+
+    &:hover {
+        color: var(--color-white);
+        transition: all 0.3s;
+
+        &:after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2882.4 2882.4' class='gw-icon' fill='none' stroke='%23008ECE'%3E%3Cpath d='M1441.2 2881.7L.7 1441.2 1441.2.7l1440.5 1440.5-1440.5 1440.5zM.7 1441.2h2881M1441.2 2881.7V.7' fill='none' stroke='%23fff' stroke-miterlimit='10' /%3E%3C/svg%3E");
+            transition: background 0.3s;
+        }
+    }
+ }
+
+ .wp-block-button.is-style-outline--2 .wp-block-button__link.wp-element-button {
+    color: var(--color-white);
+    transition: all 0.3s;
+
+    &:hover {
+        color: var(--color-brand-1);
+        border: 1px solid var(--color-brand-1);
+    }
+    
+    &:hover::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2882.4 2882.4' class='gw-icon' fill='none' stroke='%23008ECE'%3E%3Cpath d='M1441.2 2881.7L.7 1441.2 1441.2.7l1440.5 1440.5-1440.5 1440.5zM.7 1441.2h2881M1441.2 2881.7V.7' fill='none' stroke='%23008ECE' stroke-miterlimit='10' /%3E%3C/svg%3E");
+        transition: background 0.3s;
+    }
+}
+
+button#calculate {
+    margin-top: 16px;
+}

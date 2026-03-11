@@ -1,0 +1,59 @@
+.frm_style_formidable-style.with_frm_style {
+    background-color: #eee;
+    padding: 48px 0;
+}
+
+.with_frm_style legend + h3, .with_frm_style h3.frm_form_title {
+    margin-bottom: 32px;
+}
+
+.frm_form_title {
+    color: var(--color-brand-1) !important;
+}
+
+.with_frm_style .frm-show-form div.frm_description p {
+    font-size: 18px;
+    color: var(--color-text-secondary);
+}
+
+.with_frm_style .frm_checkbox input[type=checkbox] {
+    appearance: auto;
+}
+
+#custom-calculator input {
+    color: inherit;
+    background-color: var(--color-white);
+    border: 1px solid #eee;
+    max-width: 100%;
+    outline: none;
+    padding: 8px 12px;
+    width: 200px;
+}
+
+#custom-calculator {
+    label {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .input-group {
+        padding-bottom: 12px;
+    }
+
+    #result {
+        padding-top: 16px;
+    }
+}
+
+input {
+    font-family: "Univers";
+}
+
+.with_frm_style input[type=text], .with_frm_style input[type=password], .with_frm_style input[type=email], .with_frm_style input[type=number], .with_frm_style input[type=url], .with_frm_style input[type=tel], .with_frm_style input[type=file], .with_frm_style input[type=search], .with_frm_style select, .with_frm_style .frm-card-element.StripeElement,
+input {
+    min-height: 44px;
+}
+
+input, .with_frm_style input[type=text], .with_frm_style input[type=password], .with_frm_style input[type=email], .with_frm_style input[type=number], .with_frm_style input[type=url], .with_frm_style input[type=tel], .with_frm_style input[type=phone], .with_frm_style input[type=search], .with_frm_style select, .with_frm_style textarea, .frm_form_fields_style, .with_frm_style .frm_scroll_box .frm_opt_container, .frm_form_fields_active_style, .frm_form_fields_error_style, .with_frm_style .frm-card-element.StripeElement, .with_frm_style .frm_slimselect.ss-main {
+    border-radius: 0px;
+}

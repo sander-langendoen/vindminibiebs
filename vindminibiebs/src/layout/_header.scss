@@ -1,0 +1,389 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.header {
+    background-color: var(--color-brand-1);
+    width: 100%;
+    height: 120px;
+    transition: 0.2s all ease;
+    position: fixed;
+    margin: 0 auto;
+    max-width: 100vw;
+    z-index: 101; // to avoid other elements will live above
+    padding-left: 30px;
+    padding-right: 30px;
+
+    &__inner,
+    &__inner .ui-grid {
+        height: 100%;
+    }
+
+    @include md-down {
+        height: 80px;
+    }
+
+    .logo-container {
+        position: relative;
+        max-width: 201px;
+        transition: $animation-primary;
+    }
+
+    .nav-container {
+        z-index: 101;
+        text-align: right;
+        margin-left: auto;
+
+        &.nav-active {
+            z-index: 103;
+        }
+
+        nav.nav-primary {
+            display: flex;
+            align-items: center;
+        }
+
+        .ui-container {
+            height: 100%;
+        }
+    }
+
+    .logo-container,
+    .search-bar-container,
+    .icon-container,
+    .nav-container {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .nav-container {
+        height: 100%;
+        align-items: baseline;
+
+        nav.site-navigation {
+            padding: 24px 0 24px 24px;
+        }
+
+        li {
+            a {
+                color: var(--color-white);
+                white-space: nowrap;
+                text-decoration: none;
+                position: relative;
+                font-size: 16px;
+
+                &:before {
+                    display: inline-block;
+                    bottom: -10px;
+                    content: "";
+                    height: 1px;
+                    left: 100%;
+                    position: absolute;
+                    right: 0;
+                    transition-duration: .3s;
+                    transition-property: left;
+                    transition-timing-function: ease-out;
+                    z-index: -1;
+                }
+
+                &:hover:before {
+                    left: 0;
+                }
+            }
+
+            &.current_page_item {
+                a:before {
+                    left: 0;
+                }
+            }
+        }
+    }
+
+    .icon-img-container {
+        width: 21px;
+        height: 32px;
+        display: flex;
+
+        &:not(:last-child) {
+            padding-right: 4px;
+        }
+    }
+
+    .icon-search {
+        top: 60px; // hide the icon in default header state
+        opacity: 0;
+        visibility: hidden;
+        transition: $animation-primary;
+        transition-duration: 0.5s;
+        left: -10px;
+
+        // &:after {
+        //     height: 21px;
+        //     width: 21px;
+        //     background-size: 19px;
+        //     right: auto;
+        //     top: 5px;
+        //     transform: none;
+        //     transition: $animation-primary;
+        //     transition-duration: 0.5s;
+        // }
+    }
+
+    .icon-heart-container {
+        display: none;
+    }
+
+    .icon-container {
+        svg {
+            width: 21px;
+        }
+    }
+
+    svg.logo-primary {
+        &.brand-mark {
+            width: 65px; // needed for the transition to work properly (on scroll state it has a different width)
+            transition: width 0.5s;
+        }
+        &.brand-text {
+            transition: width 0.5s;
+        }
+    }
+
+    svg {
+        path {
+            fill: var(--color-white);
+        }
+    }
+}
+
+// DEFAULT STATE //
+.header[data-header-state=default] {
+
+    .logo-container {
+
+        svg.white {
+            opacity: 1;
+            visibility: visible;
+            max-height: 9999px;
+            position: relative;
+            width: 259px;
+            transition: 0.3 all ease;
+
+            @include sm-down {
+                width: 120px;
+            }
+        }
+
+        svg.color {
+            opacity: 0;
+            visibility: hidden;
+            max-height: 0;
+            position: absolute;
+        }
+    }
+
+    .logo-container,
+    .search-bar-container,
+    .icon-container {
+        transition: $animation-primary;
+        transition-property: height;
+    }
+
+    .header-inner-container {
+        background-color: var(--color-brand-1);
+    }
+
+}
+// DEFAULT STATE //
+
+
+// SCROLL STATE //
+.header[data-header-state=scroll] { // header when scrolling!
+    height: 90px;
+    transition: all 0.2s ease;
+
+    @include md-down {
+        height: 80px;
+    }
+
+    .logo-container {
+        max-width: 180px;
+
+        .logo-brand-mark {
+            height: 26px;
+            padding-right: 0;
+        }
+
+        svg.color {
+            opacity: 1;
+            visibility: visible;
+            max-height: 9999px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        svg.white {
+            opacity: 0;
+            visibility: hidden;
+            max-height: 0;
+            position: absolute;
+            width: 0
+        }
+    }
+
+    .menu-icon-container {
+        svg path {
+            fill: var(--color-white);
+        }
+        span {
+            color: var(--color-white);
+        }
+    }
+
+    @include md-down {
+        // .logo-container,
+        // .icon-container {
+        //     height: $top-header-height-mobile; // 60px;
+        // }
+        .search-bar-container[data-searchbar-state=hidden] {
+            height: 0;
+            max-height: 0px;
+            opacity: 0;
+            visibility: hidden;
+            transition: $animation-primary;
+            transition-property: height;
+        }
+    }
+
+    .icon-search {
+        position: relative;
+        top: 0px;
+        right: 0px;
+        opacity: 1;
+        visibility: visible;
+
+        @include lg-up {
+            display: none;
+        }
+    }
+
+    svg.logo-primary {
+        
+        &.brand-mark {
+            width: 21px;
+        }
+        &.brand-text {
+            transform: scale(1);
+        }
+    }
+
+    li.menu-item-has-children {
+        > .nav-item:after {
+            content: "";
+            background-image: url("data:image/svg+xml,%3Csvg height='32' viewBox='0 0 32 32' width='32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m.29286019 9.04092618c.36447234-.36450634.94032754-.38883249 1.33301388-.07296005l.08119968.07289409 14.29292615 14.29167318 14.2929263-14.29167318c.3645064-.36447234.9403639-.38874477 1.3330207-.0728357l.0811929.07290166c.3644724.36450634.3887448.94036381.0728357 1.33302072l-.0729017.0811928-14.2920927 14.2907573c-.7456269.7481805-1.9376604.7814661-2.7229391.099913l-.1057825-.0986702-14.29333335-14.2920001c-.39054251-.390506-.39057204-1.02367101-.00006596-1.41421352z' fill='%23ffffff' fill-rule='evenodd'/%3E%3C/svg%3E") !important;
+        }
+    }
+        
+}
+// SCROLL STATE //
+
+
+// scroll state but not with has bg
+.header[data-header-state=scroll]:not(.has-bg) {
+    .header-inner-container {
+        background-color: var(--color-brand-1);
+    }
+}
+
+
+// HEADER WITH BG
+.header.has-bg {
+    background-color: transparent;
+    
+    &[data-header-state='default'] { // header with background image on the default state - on top - but also on reload!
+        background-color: transparent;
+        transition: 0.3s;
+
+        .search-container {
+            background-color: transparent;
+            @include md-up {
+                top: 12px;
+            }
+        }
+    }
+
+    &[data-header-state='scroll'] { // only scroll state and on header-has-bg headers
+        background-color: var(--color-brand-1);
+        transition: 0.3s;
+    }
+
+    .heading-container { // this is just needed in header with bg
+        height: 100%;
+        z-index: 9;
+
+        @include sm-down {
+            height: 426px; // mobile height of header
+        }
+
+        .ui-grid {
+            position: relative;
+            height: 100%;
+        }
+
+        .heading-content-container {
+            .page-title:after {
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+.header[data-searchbar-state=searchbar-visible] {
+    .icon-search {
+        display: none;
+    }
+} 
+
+
+.gw-page-language-switch {
+
+  &__list {
+    display: flex;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    align-items: center;
+    padding-right: 24px;
+    padding-top: 3px;
+  }
+
+  &__item {
+    position: relative;
+
+    // divider tussen items
+    &:not(:last-child)::after {
+      content: "/";
+      display: inline-block;
+      opacity: .7;
+      color: rgba(255,255,255,.7);
+    }
+
+    &.is-active {
+        a.gw-page-language-switch__language {
+            font-family: 'UniversBold';
+        }
+    }
+  }
+
+  &__language {
+    display: inline-block;
+    padding: 6px 8px;
+    text-decoration: none;
+    color: rgba(255,255,255,.75);
+    letter-spacing: .02em;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}

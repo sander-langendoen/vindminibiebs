@@ -1,0 +1,42 @@
+@use "../abstracts/variables" as *;
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.sl-share__link--page-footer {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 999em;
+    background: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    color: var(--color-white);
+    transition: background .2s;
+}
+
+.sl-share__link:hover {
+    background: var(--color-brand-2);
+}
+
+.sl-share__link svg {
+    margin: -10px;
+    transform: scale(0.6);
+    align-self: stretch;
+}
+.sl-icon {
+    display: inline-block;
+    overflow: hidden;
+    fill: var(--color-brand-3);
+    flex-shrink: 0;
+}

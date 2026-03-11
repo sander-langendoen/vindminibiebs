@@ -1,0 +1,110 @@
+<section class="locations-slider" data-locations-slider>
+  <div class="locations-slider__header">
+    <h2 class="locations-slider__title">Find us in-store</h2>
+    <p class="locations-slider__subtitle">Visit one of our showrooms.</p>
+  </div>
+
+  <div class="locations-slider__track" data-track>
+    <!-- Slide 1 -->
+    <article class="location-card" data-location>
+      <a class="location-card__media" href="#">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0726/1975/3686/files/RosyBarker_Barry_Delve-bw.webp?v=1765458624"
+          alt="Delve Jewellery — Amsterdam"
+          loading="lazy"
+        >
+      </a>
+
+      <div class="location-card__content">
+        <h3 class="location-card__name">Rosy Barker</h3>
+        <p class="location-card__meta">Amsterdam, Netherlands</p>
+
+        <div class="location-card__actions">
+          <a class="btn btn--primary" href="#">Visit store</a>
+          <a class="btn btn--link" href="#" target="_blank" rel="noopener">
+            Directions
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Slide 2 -->
+    <article class="location-card" data-location>
+      <a class="location-card__media" href="#">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0726/1975/3686/files/Anita-CaRe-juwelier-huizen-t-gooi.webp?v=1763646891"
+          alt="Delve Jewellery — Paris"
+          loading="lazy"
+        >
+      </a>
+
+      <div class="location-card__content">
+        <h3 class="location-card__name">CaRé</h3>
+        <p class="location-card__meta">Huizen, Netherlands</p>
+
+        <div class="location-card__actions">
+          <a class="btn btn--primary" href="#">Visit store</a>
+          <a class="btn btn--link" href="#" target="_blank" rel="noopener">
+            Directions
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Slide 3 -->
+    <article class="location-card" data-location>
+      <a class="location-card__media" href="#">
+        <img
+          src="https://placehold.co/900x600"
+          alt="Delve Jewellery — London"
+          loading="lazy"
+        >
+      </a>
+
+      <div class="location-card__content">
+        <h3 class="location-card__name">QP Juwelier</h3>
+        <p class="location-card__meta">XX, Netherlands</p>
+
+        <div class="location-card__actions">
+          <a class="btn btn--primary" href="#">Visit store</a>
+          <a class="btn btn--link" href="#" target="_blank" rel="noopener">
+            Directions
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Voeg er 4e/5e bij door gewoon te kopiëren -->
+  </div>
+
+  <div class="locations-slider__footer">
+    <button class="locations-slider__nav locations-slider__nav--prev" type="button" data-prev aria-label="Previous">
+      ‹
+    </button>
+    <button class="locations-slider__nav locations-slider__nav--next" type="button" data-next aria-label="Next">
+      ›
+    </button>
+  </div>
+</section>
+
+<script>
+  (function(){
+    const root = document.querySelector('[data-locations-slider]');
+    if(!root) return;
+
+    const track = root.querySelector('[data-track]');
+    const prev = root.querySelector('[data-prev]');
+    const next = root.querySelector('[data-next]');
+
+    function getStep(){
+      const card = track.querySelector('[data-location]');
+      if(!card) return 300;
+      const style = window.getComputedStyle(track);
+      const gap = parseFloat(style.columnGap || style.gap || 0);
+      return card.getBoundingClientRect().width + gap;
+    }
+
+    prev?.addEventListener('click', () => track.scrollBy({ left: -getStep(), behavior: 'smooth' }));
+    next?.addEventListener('click', () => track.scrollBy({ left:  getStep(), behavior: 'smooth' }));
+  })();
+</script>

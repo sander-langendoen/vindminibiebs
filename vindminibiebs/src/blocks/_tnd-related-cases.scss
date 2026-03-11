@@ -1,0 +1,44 @@
+.tnd-related-cases {
+    &__title {
+        padding-bottom: 24px;
+    }
+}
+
+.tnd-article {
+    &__button {
+        font-size: 0.9375rem;
+        line-height: 1.866666667;
+        color: var(--color-white);
+        padding: 0;
+        border: 0;
+        text-transform: uppercase;
+        text-decoration: none;
+
+        &:after {
+            display: inline-block;
+            content: "";
+            width: 50px;
+            height: 13px;
+            margin-left: 20px;
+            background: no-repeat right center;
+            background-size: auto;
+            background-size: 2881px 2881px;
+            vertical-align: middle;
+            transform: translateY(-2px);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2882.4 2882.4' class='gw-icon' fill='none' stroke='%23FFF'%3E%3Cpath d='M1441.2 2881.7L.7 1441.2 1441.2.7l1440.5 1440.5-1440.5 1440.5zM.7 1441.2h2881M1441.2 2881.7V.7' fill='none' stroke='%23FFF' stroke-miterlimit='10' /%3E%3C/svg%3E");
+            transition: margin .3s;
+        }
+    }
+
+    &:hover {
+        .tnd-article__button:after {
+            margin-left: 40px;
+        }
+    }
+
+    &__excerpt {
+        a {
+            color: var(--color-white);
+        }
+    }
+}

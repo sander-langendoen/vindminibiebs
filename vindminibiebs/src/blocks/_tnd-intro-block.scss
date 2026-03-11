@@ -1,0 +1,22 @@
+.tnd-intro {
+ 
+    &__content {
+        max-width: 675px;
+    }
+
+    &__heading {
+        margin-bottom: 1rem;
+    }
+
+    &__text {
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}

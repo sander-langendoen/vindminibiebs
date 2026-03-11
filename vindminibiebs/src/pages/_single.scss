@@ -1,0 +1,9 @@
+.tnd-single-hero {
+  margin-bottom: 4rem;
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}

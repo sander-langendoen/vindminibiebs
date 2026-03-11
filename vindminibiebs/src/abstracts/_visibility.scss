@@ -1,0 +1,46 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.is-vishidden {
+    @include vishidden;
+}
+
+.is-hidden {
+    display: none !important;
+}
+
+@include lg-up {
+    .hide-lg-up {
+        display: none !important;
+    }
+}
+
+@include md-down {
+    .hide-md-down {
+        display: none !important;
+    }
+}
+
+@include md-up {
+    .hide-md-up {
+        display: none !important;
+    }
+}
+
+@include sm-down {
+    .hide-sm-down {
+        display: none !important;
+    }
+}
+
+@include sm-up {
+    .hide-sm-up {
+        display: none !important;
+    }
+}
+
+@include xs-down {
+    .hide-xs-down {
+        display: none !important;
+    }
+}

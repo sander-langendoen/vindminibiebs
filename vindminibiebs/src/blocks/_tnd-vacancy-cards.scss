@@ -1,0 +1,26 @@
+@use "../abstracts/mixins" as *;
+
+.tnd-vacancy-cards {
+    
+  &__grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 30px;
+    flex-direction: column;
+  }
+
+  &__heading {
+    font-size: 2.5rem;
+    padding-bottom: 24px;
+  }
+
+  .tnd-highlight-card {
+    background-color: var(--color-brand-5);
+    max-width: 675px;
+
+    &:hover,
+    &:focus {
+        background-color: #9db50a;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@use "../abstracts/mixins" as *;
+
+.tnd-client-logos {
+    &__inner {
+        @include section-padding();
+    }
+
+    &__heading {
+        font-size: 3.125rem;
+        line-height: 1.1;
+
+        @include md-down {
+            font-size: 2.1875rem;
+        }
+    }
+
+    &__list {
+        list-style-type: none;
+        display: flex;
+        gap: 48px;
+        padding-left: 0;
+    }
+
+    &__item {
+        max-width: 200px;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}

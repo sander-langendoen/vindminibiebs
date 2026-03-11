@@ -1,0 +1,52 @@
+@use "../abstracts/variables" as *;
+
+@keyframes moveloader {
+    0% {
+        margin-left: -25px;
+    }
+    50% {
+        margin-left: 25px;
+    }
+    100% {
+        margin-left: -25px;
+    }
+}
+
+
+@mixin move-scroll-to-top {
+    animation-name: moveScrollToTop;
+    animation-duration: 90s;
+    animation-iteration-count: 3;
+    animation-timing-function: linear;
+    animation-delay: 30s;
+}
+
+@keyframes moveScrollToTop {
+    0% {
+        bottom: $spacing-05;
+    }
+    0.5% {
+        bottom: $spacing-08;
+    }
+    0.8% {
+        bottom: $spacing-05;
+    }
+    20% {
+        bottom: $spacing-05;
+    }
+    20.5% {
+        bottom: $spacing-08;
+    }
+    20.8% {
+        bottom: $spacing-05;
+    }
+    40% {
+        bottom: $spacing-05;
+    }
+    40.5% {
+        bottom: $spacing-08;
+    }
+    40.8% {
+        bottom: $spacing-05;
+    }
+}

@@ -1,0 +1,81 @@
+@use "../abstracts/mixins" as *;
+
+.tnd-expertise-grid {
+    @include section-padding-bottom();
+
+    &__heading {
+        font-size: 3.125rem;
+        line-height: 1.1;
+        padding-bottom: 1.875rem;
+
+        @include md-down {
+            font-size: 2.1875rem;
+        }
+    }
+
+    &__intro {
+        max-width: 675px;
+        
+        p {
+            font-size: 18px;
+        }
+    }
+
+    &__items {
+        display: flex;
+        gap: 32px;
+
+        @include sm-down {
+            flex-direction: column;
+            padding-top: 32px;
+        }
+    }
+
+    .tnd-expertise-card {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        img {
+            width: 100%;
+            height: auto;
+            transition: all 0.2s;
+            will-change: transform;
+        }
+
+        &__body {
+            padding-top: 2.5rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            @include sm-down {
+                padding-top: 0;
+            }
+        }
+
+        &__excerpt {
+            padding-bottom: 18px;
+        }
+
+        &__actions {
+            margin-top: auto;
+        }
+
+        &:hover {
+            img {
+                transform: scale(1.05);
+            }
+        }
+
+        &__image-link {
+            overflow: hidden;
+            min-height: 300px;
+        }
+
+        &__title {
+            color: var(--color-brand-1);
+        }
+    }
+}

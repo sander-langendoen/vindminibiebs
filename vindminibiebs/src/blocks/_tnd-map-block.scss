@@ -1,0 +1,11 @@
+.tnd-map-block {
+    padding-top: 5rem;
+
+    @media (min-width: 768px) {
+        padding-top: 3.125rem;
+    }
+
+    @media (min-width: 992px) {
+        padding-top: 5rem;
+    }
+}

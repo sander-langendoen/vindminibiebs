@@ -1,0 +1,263 @@
+@use "../abstracts/mixins" as *;
+
+
+.tnd-articles-grid {
+  &__filter {
+    position: relative;
+    margin-left: auto; // indien je 'm rechts in de header wilt
+  }
+}
+
+.gw-taxonomy-dropdown {
+  position: relative;
+  display: inline-block;
+  min-width: 230px; // beetje breedte zoals in je design
+  font-size: 16px;
+  line-height: 1.4;
+
+  &__trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .9375rem 1.5625rem;
+    border: none;
+    cursor: pointer;
+    background-color: var(--color-brand-3);
+    color: var(--color-white);
+    font-size: 18px;
+    text-align: left;
+    max-width: 230px;
+
+    &::after {
+        display: block;
+        width: 12px;
+        height: 6px;
+        content: "";
+        background: no-repeat center bottom;
+        background-image: none;
+        background-size: auto;
+        background-size: 4321px 4321px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2882.4 2882.4' class='gw-icon' fill='none' stroke='%23FFF'%3E%3Cpath fill='none' stroke='%23FFF' stroke-miterlimit='10' d='M.676 1441.2L1441.18.696 2881.685 1441.2 1441.18 2881.704z' /%3E%3C/svg%3E");
+        position: absolute;
+        top: 50%;
+        right: 1.5625rem;
+        transform: translateY(-50%);
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: #777777;
+    z-index: 20;
+
+    // verborgen standaard
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    pointer-events: none;
+    transition:
+      opacity 0.15s ease,
+      transform 0.15s ease,
+      visibility 0.15s ease;
+  }
+
+  &__item {
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+
+    &:first-child {
+      border-top: none;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: 10px 14px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 400;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+
+    &.is-active {
+      font-family: "UniversBold";
+      font-weight: 700;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  // open state
+  &.is-open {
+    .gw-taxonomy-dropdown__menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .gw-taxonomy-dropdown__trigger::after {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+/* Grid wrapper */
+.tnd-articles-grid__items {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem; // afstand tussen kaarten
+
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  // Featured kaart over de volle breedte op desktop
+  .tnd-article--featured {
+    @media (min-width: 900px) {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+/* Basis kaart */
+.tnd-article {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: transparent;
+  position: relative;
+
+  &:hover {
+    .tnd-article__image {
+        transform: scale(1.05);
+    }
+  }
+
+  &.is-knowledge {
+    .tnd-article__content {
+        background-color: #aec90b;
+    }
+  }
+
+  &.is-knowledge:hover {
+    .tnd-article__content {
+        background-color: #9db50a;
+    }
+  }
+
+  &.is-case:hover {
+    .tnd-article__content {
+      background-color: #0080b9;
+    }
+  }
+  
+  &__content {
+      background-color: var(--color-brand-1);
+      transition: background 0.3s;
+      position: relative;
+  }
+
+  @include lg-up {
+    &--featured .tnd-article__content {
+      position: absolute;
+      bottom: 0;
+      width: 40%;
+    }
+  }
+
+  &__image-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s;
+  }
+
+  &__content {
+    color: var(--color-white);
+    padding: 2.5rem 3rem 3rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  /* Badges boven de titel */
+  &__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    padding: .375rem .625rem .3125rem;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 0;
+    font-size: 0.75rem;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* Titel */
+  &__title {
+    margin: 0 0 1rem;
+    font-size: 1.8rem;
+    line-height: 1.2;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  /* Tekst */
+  &__excerpt {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+
+    p {
+      margin: 0 0 0.75rem;
+      color: var(--color-white);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  /* “Lees meer” onderaan uitlijnen */
+  &__actions {
+    margin-top: auto;
+
+    .tnd-btn {
+
+      &.tnd-btn--ghost {
+        color: var(--color-white);
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+@use "../abstracts/mixins" as *;
+
+.tnd-highlight-cards {
+
+    &__grid {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 30px;
+        @include section-padding();
+
+        @include md-down {
+            flex-direction: column;
+        }
+    }
+}
+
+.tnd-highlight-card {
+    flex: 1 0 276px;
+    @include md-down {
+        flex: none;
+    }
+    background-color: var(--color-brand-2);
+    padding: 40px;
+    position: relative;
+    transition: background-color .3s;
+
+    &:hover {
+        background-color: #d9a100;
+
+        .tnd-btn:after {
+            margin-left: 40px;
+            transition: margin .3s;
+        }
+    }
+
+    &__title,
+    &__text p,
+    &__actions p {
+        color: var(--color-white);
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        height: 100%
+    }
+
+    &__title {
+        font-size: 1.75rem;
+        line-height: 1.285714286;
+    }
+
+    &__text {
+        min-height: 100px;
+        font-size: 16px;
+    }
+
+    &__actions {
+        margin-top: auto;
+        @include md-down {
+            margin-top: 24px;
+        }
+    }
+
+    &:hover {
+        .tnd-highlight-card__button:after {
+            margin-left: 40px;
+        }
+    }
+
+    .tnd-highlight-card__button {
+        font-size: 0.9375rem;
+        line-height: 1.866666667;
+        color: var(--color-white);
+        padding: 0;
+        border: 0;
+        text-transform: uppercase;
+        text-decoration: none;
+
+        &:after {
+            display: inline-block;
+            content: "";
+            width: 50px;
+            height: 13px;
+            margin-left: 20px;
+            background: no-repeat right center;
+            background-size: auto;
+            background-size: 2881px 2881px;
+            vertical-align: middle;
+            transform: translateY(-2px);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2882.4 2882.4' class='gw-icon' fill='none' stroke='%23FFF'%3E%3Cpath d='M1441.2 2881.7L.7 1441.2 1441.2.7l1440.5 1440.5-1440.5 1440.5zM.7 1441.2h2881M1441.2 2881.7V.7' fill='none' stroke='%23FFF' stroke-miterlimit='10' /%3E%3C/svg%3E");
+            transition: margin .3s;
+        }
+    }
+}

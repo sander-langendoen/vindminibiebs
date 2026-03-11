@@ -1,0 +1,92 @@
+// Kleuren
+:root {
+    --color-brand-1: #008ece;
+    --color-brand-2: #f1b300;
+    --color-brand-3: #868685;
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-text-secondary: #5B5B66;
+    --color-brand-4: #EEEEEE;
+    --color-brand-5: #aec90b;
+}
+
+
+/*------------------------------------*\
+    #BREAKPOINTS
+\*------------------------------------*/
+
+/**
+* Breakpoints used media queries (see mixins)
+* These are not the only breakpoints used, but they provide a few defaults
+*/
+$xxs: 320px !default; 
+$xs: 414px !default;
+$sm: 600px !default;
+$md: 768px !default;
+$lg: 1024px !default;
+$xl: 1440px !default;
+
+
+// Spacing
+$space-s: 0.75rem;
+$space-m: 1.25rem;
+$space-l: 2rem;
+$space-xl: 4rem;
+
+// spacings on molecules
+$spacing-01: 2px !default;
+$spacing-02: 4px !default;
+$spacing-03: 8px !default;
+$spacing-04: 12px !default;
+$spacing-05: 16px !default;
+$spacing-06: 20px !default;
+$spacing-07: 24px !default;
+$spacing-08: 32px !default;
+$spacing-09: 40px !default;
+$spacing-10: 48px !default;
+
+
+/*------------------------------------*\
+    #LAYOUT
+\*------------------------------------*/
+
+/**
+* Header
+*/
+$header-height-desktop: 160px !default; // needed for fixed header and paddings etc. so we keep it in one variable
+$sub-header-height-desktop: 60px !default;
+$top-header-height-desktop: 100px !default;
+
+// scrolled state
+$header-height-scroll-desktop: 130px !default;
+$sub-header-height-scroll-desktop: 60px !default;
+$top-header-height-scroll-desktop: 70px !default;
+
+// mobile
+$header-height-mobile: 120px !default; // needed for fixed header and paddings etc. so we keep it in one variable
+$sub-header-height-mobile: 60px !default;
+$top-header-height-mobile: 60px !default;
+
+$header-height-scrolled-mobile: 60px !default; // needed for fixed header and paddings etc. so we keep it in one variable
+$sub-header-height-scrolled-mobile: 0px !default;
+$top-header-height-scrolled-mobile:60px !default;
+
+$header-searchbar-height-mobile: 60px !default;
+
+
+/**
+* Mobile navigation
+*/
+$mobile-nav-width: 80vw !default;
+
+
+
+// Transities
+$transition-fast: 0.2s ease-in-out;
+
+
+/**
+* Transition Speed
+*/
+$animation-primary: 0.3s all ease !default;
+$animation-secondary: 0.5s all 0s cubic-bezier(.445,.05,.55,.95) !default;

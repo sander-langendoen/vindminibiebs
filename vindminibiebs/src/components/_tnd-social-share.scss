@@ -1,0 +1,42 @@
+.tnd-share {
+
+    &__buttons {
+        display: flex;
+        gap: 12px;
+    }
+
+    &__btn {
+        color: var(--color-white);
+    }
+
+    svg {
+        margin: -10px;
+        transform: scale(0.6);
+        align-self: stretch;
+    }
+
+    a {
+        background: var(--color-brand-2);
+        color: var(--color-white);
+        display: block;
+        width: 30px;
+        height: 30px;
+        border-radius: 999em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        transition: all .2s;
+
+        &:hover,
+        &:active {
+            opacity: 0.9;
+        }
+    }
+    path {
+        display: inline-block;
+        overflow: hidden;
+        fill: currentColor;
+        flex-shrink: 0;
+    }
+}
