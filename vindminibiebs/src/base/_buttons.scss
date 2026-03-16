@@ -11,9 +11,8 @@
 #calculate {
     color: var(--color-white);
     border-color: var(--color-white);
-    border-radius: 0;
+    border-radius: 16px;
     
-    text-transform: uppercase;
     transition: color .2s;
     position: relative;
     z-index: 2;
@@ -33,27 +32,6 @@
     line-height: 1.555555556;
     transition: transform .3s;
 
-    &:after {
-        content: "";
-        width: 50px;
-        height: 13px;
-        margin-left: 20px;
-        vertical-align: middle;
-        transform: translateY(-2px);
-        color: var(--color-white);
-        background: no-repeat right center;
-        background-size: auto;
-        background-size: 2881px 2881px;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2882.4 2882.4' class='gw-icon' fill='none' stroke='%23FFF'%3E%3Cpath d='M1441.2 2881.7L.7 1441.2 1441.2.7l1440.5 1440.5-1440.5 1440.5zM.7 1441.2h2881M1441.2 2881.7V.7' fill='none' stroke='%23FFF' stroke-miterlimit='10' /%3E%3C/svg%3E");
-        transition: opacity .2s;
-        display: inline-block;
-
-        @include sm-down {
-            content: none;
-        }
-    }
-
-
     &:before {
         content: "";
         display: block;
@@ -68,21 +46,18 @@
         transition: transform .3s;
         pointer-events: none;
         background-color: var(--color-white);
+        border-radius: 16px;
     }
 
     &:hover {
         color: var(--color-brand-1);
         transition: transform .3s;
+        border-radius: 16px;
     }
 
     &:hover:before {
         transform: scaleX(1);
         transition: transform .3s;
-    }
-
-    &:hover::after {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2882.4 2882.4' class='gw-icon' fill='none' stroke='%23008ECE'%3E%3Cpath d='M1441.2 2881.7L.7 1441.2 1441.2.7l1440.5 1440.5-1440.5 1440.5zM.7 1441.2h2881M1441.2 2881.7V.7' fill='none' stroke='%23008ECE' stroke-miterlimit='10' /%3E%3C/svg%3E");
-        transition: background 0.3s;
     }
 }
 
@@ -121,10 +96,12 @@
     font-family: "Univers";
 }
 
- .wp-block-button__link.wp-element-button {
+ .wp-block-button__link.wp-element-button,
+ .frm_style_formidable-stijlen.with_frm_style .frm_submit button {
     background-color: var(--color-white);
     border: 1px solid var(--color-brand-1);
     color: var(--color-brand-1);
+    border-radius: 16px;
 
     &:before {
         background-color: var(--color-brand-1);
@@ -145,9 +122,15 @@
     }
  }
 
+ .frm_style_formidable-stijlen.with_frm_style .frm_submit button:hover {
+    background: var(--color-brand-1);
+    border-color: var(--color-brand-1);
+ }
+
  .wp-block-button.is-style-outline--2 .wp-block-button__link.wp-element-button {
     color: var(--color-white);
     transition: all 0.3s;
+    border-radius: 16px;
 
     &:hover {
         color: var(--color-brand-1);

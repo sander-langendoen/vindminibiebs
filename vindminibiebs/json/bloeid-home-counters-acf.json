@@ -1,0 +1,198 @@
+[
+  {
+    "key": "group_tnd_home_counters",
+    "title": "Home Counters",
+    "fields": [
+      {
+        "key": "field_tnd_home_counter_tab",
+        "label": "Home Counters",
+        "name": "",
+        "type": "tab",
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_tnd_show_home_counters",
+        "label": "Toon counterblok",
+        "name": "show_home_counters",
+        "type": "true_false",
+        "instructions": "Toon het counterblok onder de kaart op de homepage.",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "message": "",
+        "default_value": 1,
+        "ui": 1,
+        "ui_on_text": "Ja",
+        "ui_off_text": "Nee"
+      },
+      {
+        "key": "field_tnd_home_counter_eyebrow",
+        "label": "Eyebrow",
+        "name": "home_counter_eyebrow",
+        "type": "text",
+        "default_value": "BLOEID in cijfers"
+      },
+      {
+        "key": "field_tnd_home_counter_title",
+        "label": "Titel",
+        "name": "home_counter_title",
+        "type": "text",
+        "default_value": "Samen zichtbaar, provincie voor provincie"
+      },
+      {
+        "key": "field_tnd_home_counter_intro",
+        "label": "Intro",
+        "name": "home_counter_intro",
+        "type": "textarea",
+        "rows": 3,
+        "new_lines": "br"
+      },
+      {
+        "key": "field_tnd_home_counter_visitors_label",
+        "label": "Bezoekers label",
+        "name": "home_counter_visitors_label",
+        "type": "text",
+        "default_value": "Websitebezoekers"
+      },
+      {
+        "key": "field_tnd_home_counter_visitors_value",
+        "label": "Bezoekers waarde",
+        "name": "home_counter_visitors_value",
+        "type": "number",
+        "default_value": 0,
+        "min": 0,
+        "step": 1
+      },
+      {
+        "key": "field_tnd_home_counter_visitors_suffix",
+        "label": "Bezoekers suffix",
+        "name": "home_counter_visitors_suffix",
+        "type": "text",
+        "instructions": "Bijvoorbeeld: totaal, deze maand, +",
+        "default_value": "totaal"
+      },
+      {
+        "key": "field_tnd_home_counter_visitors_note",
+        "label": "Bezoekers noot",
+        "name": "home_counter_visitors_note",
+        "type": "text",
+        "instructions": "Kleine toelichting onder de grote teller."
+      },
+      {
+        "key": "field_tnd_home_counter_provinces",
+        "label": "Provincie totalen",
+        "name": "home_counter_provinces",
+        "type": "repeater",
+        "instructions": "Voeg hier je 12 provincies toe. De output wordt in vaste volgorde gesorteerd.",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "layout": "table",
+        "pagination": 0,
+        "min": 0,
+        "max": 12,
+        "collapsed": "field_tnd_home_counter_province_code",
+        "button_label": "Provincie toevoegen",
+        "rows_per_page": 20,
+        "sub_fields": [
+          {
+            "key": "field_tnd_home_counter_province_code",
+            "label": "Provincie",
+            "name": "province_code",
+            "type": "select",
+            "choices": {
+              "NL-GR": "Groningen",
+              "NL-FR": "Friesland",
+              "NL-DR": "Drenthe",
+              "NL-OV": "Overijssel",
+              "NL-FL": "Flevoland",
+              "NL-GE": "Gelderland",
+              "NL-UT": "Utrecht",
+              "NL-NH": "Noord-Holland",
+              "NL-ZH": "Zuid-Holland",
+              "NL-ZE": "Zeeland",
+              "NL-NB": "Noord-Brabant",
+              "NL-LI": "Limburg"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1,
+            "ajax": 0,
+            "placeholder": ""
+          },
+          {
+            "key": "field_tnd_home_counter_province_label",
+            "label": "Custom label",
+            "name": "province_label",
+            "type": "text",
+            "instructions": "Optioneel. Laat leeg om standaard provincienaam te gebruiken."
+          },
+          {
+            "key": "field_tnd_home_counter_province_value",
+            "label": "Waarde",
+            "name": "province_value",
+            "type": "number",
+            "default_value": 0,
+            "min": 0,
+            "step": 1
+          },
+          {
+            "key": "field_tnd_home_counter_province_suffix",
+            "label": "Suffix",
+            "name": "province_suffix",
+            "type": "text",
+            "instructions": "Bijvoorbeeld: minibiebs, locaties, punten"
+          },
+          {
+            "key": "field_tnd_home_counter_province_note",
+            "label": "Noot",
+            "name": "province_note",
+            "type": "text",
+            "instructions": "Kleine toelichting onder het getal"
+          },
+          {
+            "key": "field_tnd_home_counter_province_featured",
+            "label": "Uitgelicht tonen",
+            "name": "province_featured",
+            "type": "true_false",
+            "instructions": "Optioneel: één provincie kan als grotere kaart naast het bezoekersblok getoond worden.",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Ja",
+            "ui_off_text": "Nee"
+          }
+        ]
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "options_page",
+          "operator": "==",
+          "value": "tnd-theme-options-counters"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Counter instellingen voor de BLOEID homepage.",
+    "show_in_rest": 0,
+    "modified": 1773648000
+  }
+]

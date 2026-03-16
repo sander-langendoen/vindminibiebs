@@ -12,7 +12,7 @@
     <!-- wp:group {"className":"narrow","backgroundColor":"custom-ffffff","layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical"}} -->
     <div class="wp-block-group narrow has-custom-ffffff-background-color has-background">
         <!-- wp:paragraph -->
-        <p>Superheld word je niet, dat ben je. Gebruik dit 'narrow' block voor een smallere container.</p>
+        <p>Gebruik dit 'narrow' block voor een smallere container.</p>
         <!-- /wp:paragraph -->
     </div>
     <!-- /wp:group -->

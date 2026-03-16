@@ -373,183 +373,6 @@ add_action( 'acf/init', function() {
 } );
 
 
-// CPT: Expertise
-add_action( 'init', function () {
-
-    $labels = [
-        'name'                  => _x( 'Expertises', 'Post type general name', 'tnd' ),
-        'singular_name'         => _x( 'Expertise', 'Post type singular name', 'tnd' ),
-        'menu_name'             => _x( 'Expertises', 'Admin Menu text', 'tnd' ),
-        'name_admin_bar'        => _x( 'Expertise', 'Add New on Toolbar', 'tnd' ),
-        'add_new'               => __( 'Nieuwe expertise', 'tnd' ),
-        'add_new_item'          => __( 'Nieuwe expertise toevoegen', 'tnd' ),
-        'new_item'              => __( 'Nieuwe expertise', 'tnd' ),
-        'edit_item'             => __( 'Expertise bewerken', 'tnd' ),
-        'view_item'             => __( 'Expertise bekijken', 'tnd' ),
-        'all_items'             => __( 'Alle expertises', 'tnd' ),
-        'search_items'          => __( 'Expertises zoeken', 'tnd' ),
-        'not_found'             => __( 'Geen expertises gevonden.', 'tnd' ),
-        'not_found_in_trash'    => __( 'Geen expertises in prullenbak.', 'tnd' ),
-    ];
-
-    $args = [
-        'labels'             => $labels,
-        'public'             => true,
-        'show_in_rest'       => true,              // Gutenberg
-        'has_archive'        => true,
-        'rewrite'            => [ 'slug' => 'expertise' ],
-        'menu_position'      => 21,
-        'menu_icon'          => 'dashicons-awards',
-        'supports'           => [ 'title', 'editor', 'excerpt', 'thumbnail' ],
-        'hierarchical'       => false,
-    ];
-
-    register_post_type( 'expertise', $args );
-
-
-    // CPT Case
-    register_post_type( 'case', [
-        'labels' => [
-            'name'          => __( 'Cases', 'tnd' ),
-            'singular_name' => __( 'Case', 'tnd' ),
-        ],
-        'public'       => true,
-        'has_archive'  => true,
-        'menu_position'=> 21,
-        'menu_icon'    => 'dashicons-portfolio',
-        'supports'     => [ 'title', 'editor', 'thumbnail', 'excerpt' ],
-        'show_in_rest' => true,
-    ] );
-
-    // Koppel standaard categorieën ook aan cases
-    register_taxonomy_for_object_type( 'category', 'case' );
-
-
-    // CPT: Team member
-    $labels = [
-        'name'                  => _x( 'Team members', 'Post type general name', 'tnd' ),
-        'singular_name'         => _x( 'Team member', 'Post type singular name', 'tnd' ),
-        'menu_name'             => _x( 'Team members', 'Admin Menu text', 'tnd' ),
-        'name_admin_bar'        => _x( 'Team member', 'Add New on Toolbar', 'tnd' ),
-        'add_new'               => __( 'Nieuwe team member', 'tnd' ),
-        'add_new_item'          => __( 'Nieuwe team member toevoegen', 'tnd' ),
-        'new_item'              => __( 'Nieuwe team member', 'tnd' ),
-        'edit_item'             => __( 'Team member bewerken', 'tnd' ),
-        'view_item'             => __( 'Team member bekijken', 'tnd' ),
-        'all_items'             => __( 'Alle team members', 'tnd' ),
-        'search_items'          => __( 'Team members zoeken', 'tnd' ),
-        'not_found'             => __( 'Geen team members gevonden.', 'tnd' ),
-        'not_found_in_trash'    => __( 'Geen team members in prullenbak.', 'tnd' ),
-    ];
-
-    $args = [
-        'labels'             => $labels,
-        'public'             => true,
-        'show_in_rest'       => true,
-        'has_archive'        => false,
-        'rewrite'            => [ 'slug' => 'team' ],
-        'menu_icon'          => 'dashicons-groups',
-        'menu_position'      => 22,
-        'supports'           => [ 'title', 'editor', 'thumbnail' ],
-    ];
-
-    register_post_type( 'team', $args );
-
-
-    /**
-   * Custom Post Type: Vacancies
-   */
-    $labels = [
-        'name'                  => __( 'Vacatures', 'tnd' ),
-        'singular_name'         => __( 'Vacature', 'tnd' ),
-        'menu_name'             => __( 'Vacatures', 'tnd' ),
-        'name_admin_bar'        => __( 'Vacature', 'tnd' ),
-        'add_new'               => __( 'Nieuwe vacature', 'tnd' ),
-        'add_new_item'          => __( 'Nieuwe vacature toevoegen', 'tnd' ),
-        'edit_item'             => __( 'Vacature bewerken', 'tnd' ),
-        'new_item'              => __( 'Nieuwe vacature', 'tnd' ),
-        'view_item'             => __( 'Bekijk vacature', 'tnd' ),
-        'view_items'            => __( 'Bekijk vacatures', 'tnd' ),
-        'search_items'          => __( 'Zoek vacatures', 'tnd' ),
-        'not_found'             => __( 'Geen vacatures gevonden', 'tnd' ),
-        'not_found_in_trash'    => __( 'Geen vacatures in de prullenbak', 'tnd' ),
-        'all_items'             => __( 'Alle vacatures', 'tnd' ),
-        'archives'              => __( 'Vacature archief', 'tnd' ),
-        'attributes'            => __( 'Vacature eigenschappen', 'tnd' ),
-        'insert_into_item'      => __( 'In vacature invoegen', 'tnd' ),
-        'uploaded_to_this_item' => __( 'Geüpload naar deze vacature', 'tnd' ),
-    ];
-
-    $args = [
-        'labels'             => $labels,
-        'public'             => true,
-        'has_archive'        => true,              // /vacancy/ of /vacatures/ als je rewrite aanpast
-        'rewrite'            => [
-            'slug'       => 'vacatures',          // frontend URL: /vacatures/…
-            'with_front' => false,
-        ],
-        'menu_position'      => 22,
-        'menu_icon'          => 'dashicons-id-alt',
-        'supports'           => [
-            'title',
-            'editor',
-            'excerpt',
-            'thumbnail',
-            'revisions',
-        ],
-        'show_in_rest'       => true,    
-        'publicly_queryable' => true,
-        'show_ui'            => true,
-        'show_in_menu'       => true,
-        'query_var'          => true,
-        'capability_type'    => 'post',
-    ];
-
-    register_post_type( 'vacancy', $args );
-} );
-
-
-// CPT evenementen
-function tnd_register_cpt_evenementen() {
-
-    $labels = [
-        'name'               => 'Evenementen',
-        'singular_name'      => 'Evenement',
-        'menu_name'          => 'Evenementen',
-        'add_new'            => 'Nieuw evenement',
-        'add_new_item'       => 'Nieuw evenement toevoegen',
-        'edit_item'          => 'Evenement bewerken',
-        'new_item'           => 'Nieuw evenement',
-        'view_item'          => 'Bekijk evenement',
-        'search_items'       => 'Zoek evenementen',
-        'not_found'          => 'Geen evenementen gevonden',
-    ];
-
-    $args = [
-        'labels'             => $labels,
-        'public'             => true,
-        'menu_icon'          => 'dashicons-calendar-alt',
-        'has_archive'        => false,
-        'rewrite'            => ['slug' => 'evenement'],
-        'supports'           => ['title', 'editor', 'thumbnail'],
-        'show_in_rest'       => true,
-    ];
-
-    register_post_type('evenement', $args);
-}
-add_action('init', 'tnd_register_cpt_evenementen');
-
-
-/* add favicon */
-add_action('wp_head', function() {
-    ?>
-    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/favicon.ico" />
-    <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/assets/apple-touch-icon.png" />
-    <?php
-
-});
-
-
 /* remove all unwanted core block patternsand Openverse images */
 add_action( 'init', function() {
     remove_theme_support( 'core-block-patterns' );
@@ -621,54 +444,18 @@ add_action('acf/init', function () {
     'menu_slug'   => 'tnd-theme-options-footer',
   ]);
 
+  acf_add_options_sub_page([
+    'page_title'  => __('De cijfers', 'tnd'),
+    'menu_title'  => __('De cijfers', 'tnd'),
+    'parent_slug' => 'tnd-theme-options',
+    'menu_slug'   => 'tnd-theme-options-counters',
+    ]);
+
 });
 
 
 
 add_filter('big_image_size_threshold', '__return_false');
-
-
-
-// ADD all scripts
-add_action('wp_head', function () { ?>
-  <!-- Google Tag Manager -->
-  <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KRHRBBC');
-  </script>
-  <!-- End Google Tag Manager -->
-<?php }, 0);
-
-add_action('wp_body_open', function () { ?>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KRHRBBC"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
-  <!-- End Google Tag Manager (noscript) -->
-<?php }, 0);
-
-add_action('wp_head', function () { ?>
-  <!-- Matomo -->
-  <script>
-     var _paq = window._paq = window._paq || [];
-    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-    _paq.push(["setExcludedQueryParams", ["stg.thenextdigitals.nl"]]);
-    _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
-    (function() {
-        var u="https://analytics.thenextdigitals.nl/";
-        _paq.push(['setTrackerUrl', u+'matomo.php']);
-        _paq.push(['setSiteId', '1']);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-    })();
-  </script>
-  <!-- End Matomo -->
-<?php }, 1);
 
 
 /**

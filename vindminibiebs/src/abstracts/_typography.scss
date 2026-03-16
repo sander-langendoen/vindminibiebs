@@ -3,26 +3,26 @@
 /* stylelint-disable */
 @font-face {
     font-display: swap;
-    font-family: 'Univers';
+    font-family: 'Cardo';
     font-style: normal;
     font-weight: 400;
-    src: url('/wp-content/themes/thenextdigitals/assets/fonts/UniversRegular.woff2') format('woff2');
+    src: url('/wp-content/themes/vindminibiebs/assets/fonts/Cardo-Regular.woff2') format('woff2');
 }
+
+// @font-face {
+//     font-display: swap;
+//     font-family: '';
+//     font-style: normal;
+//     font-weight: 300;
+//     src: url('/wp-content/themes/vindminibiebs/assets/fonts/UniversLight.woff2') format('woff2');
+// }
 
 @font-face {
     font-display: swap;
-    font-family: 'UniversLight';
-    font-style: normal;
-    font-weight: 300;
-    src: url('/wp-content/themes/thenextdigitals/assets/fonts/UniversLight.woff2') format('woff2');
-}
-
-@font-face {
-    font-display: swap;
-    font-family: 'UniversBold';
+    font-family: 'CardoBold';
     font-style: normal;
     font-weight: 700;
-    src: url('/wp-content/themes/thenextdigitals/assets/fonts/Univers-Bold.woff') format('woff');
+    src: url('/wp-content/themes/vindminibiebs/assets/fonts/Cardo-Bold.woff') format('woff2');
 }
 
 // @font-face {
@@ -30,7 +30,7 @@
 //     font-family: 'Univers';
 //     font-style: bold;
 //     font-weight: 700;
-//     src: url('/wp-content/themes/thenextdigitals/assets/fonts/UniversBold.woff2') format('woff2');
+//     src: url('/wp-content/themes/vindminibiebs/assets/fonts/UniversBold.woff2') format('woff2');
 // }
 
 // @font-face {
@@ -44,5 +44,5 @@
 
 :root {
     // Typography
-    --font-univers: "Univers", system-ui, -apple-system, sans-serif;
+    --font-univers: "Cardo", system-ui, -apple-system, sans-serif;
 }

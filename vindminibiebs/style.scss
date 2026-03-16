@@ -67,6 +67,7 @@
 @use "src/pages/single-case-blog";
 @use "src/pages/search";
 @use "src/pages/page-events";
+@use "src/pages/page-over-ons-timeline";
 
 
 .wp-block-heading,
@@ -96,19 +97,16 @@ p,
 
 
 body {
-  font-family: "Univers",sans-serif;
+  font-family: "Open Sans",sans-serif;
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.666666667;
-  color: var(--color-text-secondary);
+  background-color: #f7f5ee;
   text-align: left;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-strong {
-  font-family: "UniversBold";
-}
 
 p {
   margin-top: 0;
@@ -384,7 +382,10 @@ main {
   .tnd-container,
   .frm_forms.frm_style_formidable-style.with_frm_style,
   .tnd-events-grid,
-  .tnd-events__intro h1 {
+  .tnd-events__intro h1,
+  .home h1,
+  .home .intro-p,
+  .home-counter-band {
     padding-right: 30px;
     padding-left: 30px;
   }

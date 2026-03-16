@@ -37,7 +37,6 @@
 
       // Base link styling + underline animatie
       > li > a {
-        color: var(--color-white);
         position: relative;
         text-decoration: none;
         opacity: 1;
@@ -52,7 +51,7 @@
           bottom: -3px;
           height: 2px;
           display: block;
-          background-color: var(--color-white);
+          background-color: var(--color-brand-1);
           width: 100%;
           transform: scaleX(0);
           transform-origin: left center;

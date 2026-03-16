@@ -5,24 +5,23 @@
 h1, h2, h3, h4, h5, h6,
 .frm_form_title {
     font-weight: 400;
-    font-family: 'Univers';
+    font-family: 'Cardo';
     margin: 0;
 }
 
 h1 {
-  font-size: 2.1875rem;
+  font-size: 30px;
   line-height: 1.142857143;
   padding-bottom: 1.875rem;
-  color: var(--color-brand-1);
+
 
   @media (min-width: 576px) {
-    font-size: 3.125rem;
+    font-size: 40px;
     line-height: 1.1;
   }
 }
 
 h2, h2.wp-block-heading {
-    color: var(--color-brand-1);
     font-size: 1.75rem;
     line-height: 1.285714286;
     padding-bottom: .625rem;
@@ -64,21 +63,4 @@ h3 {
 
 .tnd-article__title {
   color: var(--color-white);
-}
-
-h2.tnd-page-cta__heading::before {
-    background-color: #fff;
-}
-
-h1:before,
-h1.wp-block-heading:before,
-h2:before,
-h3.tnd-expertise-card__title:before,
-.frm_form_title:before {
-  display: block;
-  content: "";
-  height: 3px;
-  width: 100%;
-  max-width: 60px;
-  background-color: #008ece;
 }
