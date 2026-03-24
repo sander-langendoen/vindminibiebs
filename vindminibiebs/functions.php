@@ -112,6 +112,7 @@ add_action('enqueue_block_editor_assets', function () {
 });
 
 require_once get_theme_file_path( '/inc/tnd-social-share.php' );
+// require_once get_theme_file_path( '/inc/google-reviews.php' );
 
 
 
@@ -407,49 +408,62 @@ add_filter( 'wp_kses_allowed_html', 'tnd_allow_iframes_in_content', 10, 2 );
 
 
 /**
- * ACF Theme Options
+ * Geef toegang tot Theme Options aan administrator en editor
  */
+add_action('init', function () {
+	$roles = ['administrator', 'editor'];
+
+	foreach ($roles as $role_name) {
+		$role = get_role($role_name);
+
+		if ($role && ! $role->has_cap('edit_tnd_theme_options')) {
+			$role->add_cap('edit_tnd_theme_options');
+		}
+	}
+});
+
+
 add_action('acf/init', function () {
 
-  if ( ! function_exists('acf_add_options_page') ) {
-    return;
-  }
+	if (!function_exists('acf_add_options_page')) {
+		return;
+	}
 
-  // Hoofd: Theme Options
-  acf_add_options_page([
-    'page_title'      => __('Theme Options', 'tnd'),
-    'menu_title'      => __('Theme Options', 'tnd'),
-    'menu_slug'       => 'tnd-theme-options',
-    'capability'      => 'manage_options',
-    'redirect'        => true,
-    'position'        => 61,
-    'icon_url'        => 'dashicons-admin-generic',
-    'update_button'   => __('Opslaan', 'tnd'),
-    'updated_message' => __('Opgeslagen.', 'tnd'),
-  ]);
+	acf_add_options_page([
+		'page_title'      => __('Theme Options', 'tnd'),
+		'menu_title'      => __('Theme Options', 'tnd'),
+		'menu_slug'       => 'tnd-theme-options',
+		'capability'      => 'edit_tnd_theme_options',
+		'redirect'        => false,
+		'position'        => 61,
+		'icon_url'        => 'dashicons-admin-generic',
+		'update_button'   => __('Opslaan', 'tnd'),
+		'updated_message' => __('Opgeslagen.', 'tnd'),
+	]);
 
-  // Subpage: 404 Page
-  acf_add_options_sub_page([
-    'page_title'  => __('404 Page', 'tnd'),
-    'menu_title'  => __('404 Page', 'tnd'),
-    'parent_slug' => 'tnd-theme-options',
-    'menu_slug'   => 'tnd-theme-options-404',
-  ]);
+	acf_add_options_sub_page([
+		'page_title'  => __('404 Page', 'tnd'),
+		'menu_title'  => __('404 Page', 'tnd'),
+		'parent_slug' => 'tnd-theme-options',
+		'menu_slug'   => 'tnd-theme-options-404',
+		'capability'  => 'edit_tnd_theme_options',
+	]);
 
-  // Subpage: Footer
-  acf_add_options_sub_page([
-    'page_title'  => __('Footer', 'tnd'),
-    'menu_title'  => __('Footer', 'tnd'),
-    'parent_slug' => 'tnd-theme-options',
-    'menu_slug'   => 'tnd-theme-options-footer',
-  ]);
+	acf_add_options_sub_page([
+		'page_title'  => __('Footer', 'tnd'),
+		'menu_title'  => __('Footer', 'tnd'),
+		'parent_slug' => 'tnd-theme-options',
+		'menu_slug'   => 'tnd-theme-options-footer',
+		'capability'  => 'edit_tnd_theme_options',
+	]);
 
-  acf_add_options_sub_page([
-    'page_title'  => __('De cijfers', 'tnd'),
-    'menu_title'  => __('De cijfers', 'tnd'),
-    'parent_slug' => 'tnd-theme-options',
-    'menu_slug'   => 'tnd-theme-options-counters',
-    ]);
+	acf_add_options_sub_page([
+		'page_title'  => __('De cijfers', 'tnd'),
+		'menu_title'  => __('De cijfers', 'tnd'),
+		'parent_slug' => 'tnd-theme-options',
+		'menu_slug'   => 'tnd-theme-options-counters',
+		'capability'  => 'edit_tnd_theme_options',
+	]);
 
 });
 
@@ -753,3 +767,24 @@ function tnd_events_order_by_date($query) {
     }
 }
 add_action('pre_get_posts', 'tnd_events_order_by_date');
+
+
+/**
+ * visitor counter that increases on page load
+ */
+function tnd_get_fake_visitor_count() {
+	$base = 0;
+
+	$count = get_option('tnd_visitor_count');
+
+	if ($count === false || $count === '' || !is_numeric($count)) {
+		$count = $base;
+	}
+
+	if (!is_admin() && is_front_page()) {
+		$count += 1;
+		update_option('tnd_visitor_count', (int) $count);
+	}
+
+	return (int) $count;
+}

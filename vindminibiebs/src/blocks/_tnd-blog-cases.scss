@@ -160,7 +160,7 @@
   }
   
   &__content {
-      background-color: var(--color-brand-1);
+      // background-color: var(--color-brand-1);
       transition: background 0.3s;
       position: relative;
   }
@@ -188,11 +188,13 @@
   }
 
   &__content {
-    color: var(--color-white);
+    color: var(--color-black);
     padding: 2.5rem 3rem 3rem;
     display: flex;
     flex-direction: column;
     flex: 1;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-top: none;
   }
 
   /* Badges boven de titel */
@@ -207,12 +209,10 @@
     display: inline-flex;
     align-items: center;
     padding: .375rem .625rem .3125rem;
-    border: 1px solid rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 0;
     font-size: 0.75rem;
     line-height: 1;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
     white-space: nowrap;
   }
 
@@ -221,6 +221,7 @@
     margin: 0 0 1rem;
     font-size: 1.8rem;
     line-height: 1.2;
+    color: var(--color-brand-1);
 
     a {
       color: inherit;

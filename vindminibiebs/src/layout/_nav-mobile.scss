@@ -8,7 +8,7 @@
         top: 0;
         left: -$mobile-nav-width;
         width: $mobile-nav-width;
-        background-color: var(--color-brand-3);
+        background-color: #f7f5ee;
         min-height: 100vh;
         max-height: 100vh;
         transition: $animation-secondary;
@@ -43,6 +43,10 @@
             }
         }
 
+        img.custom-logo {
+            display: none;
+        }
+
         .close-icon-container {
             margin-right: $spacing-03;
             cursor: pointer;
@@ -63,7 +67,7 @@
         }
 
         path {
-            fill: var(--color-white);
+            fill: var(--color-brand-1);
         }
     
         .sub-menu {
@@ -99,7 +103,7 @@
             }
 
             a { // rest of it lives in general styling nav
-                color: var(--color-white);
+                color: var(--color-black);
                 display: block;
                 width: 100%;
                 height: 57px;

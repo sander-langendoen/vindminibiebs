@@ -1,0 +1,31 @@
+@use "../abstracts/mixins" as *;
+
+.page-id-65 {
+    ul.wp-block-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        @include md-down() {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include sm-down() {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    main {
+        /* padding for mobile and such */
+        @media (max-width: 1199px) {
+            padding-right: 30px;
+            padding-left: 30px;
+        }
+    }
+
+    @media (max-width: 1199px) {
+        .breadcrumbs {
+            padding-right: 0px;
+            padding-left: 0px;
+        }
+    }
+}

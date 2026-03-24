@@ -23,7 +23,7 @@ $cats = array_values(array_filter($cats, function($cat) {
 
   <?php if ( !empty($cats) ) : ?>
     <div class="tnd-single-sidebar__section">
-      <h3 class="tnd-single-sidebar__label">Categories</h3>
+      <h3 class="tnd-single-sidebar__label">Categorieën</h3>
 
       <div class="tnd-single-sidebar__cats">
         <?php foreach ( $cats as $cat ) : ?>
@@ -37,7 +37,7 @@ $cats = array_values(array_filter($cats, function($cat) {
   <?php endif; ?>
 
   <div class="tnd-single-sidebar__section">
-    <h3 class="tnd-single-sidebar__label">Share this</h3>
+    <h3 class="tnd-single-sidebar__label">Deel dit artikel</h3>
 
     <div class="tnd-single-sidebar__share">
       <a class="tnd-share-btn" target="_blank" rel="noopener"

@@ -96,12 +96,15 @@ $col3_2_title = get_field('third_footer_second_menu_title', 'option');
           <h3 class="site-footer__title"><?php echo esc_html($col3_2_title); ?></h3>
         <?php endif; ?>
 
-        <!-- <a class="tnd-share__link" href="https://www.linkedin.com/company/thenextdigitals/" target="_blank" rel="nofollow">
-            <svg class="tnd-icon" height="50" viewBox="0 0 30 30" width="50" xmlns="http://www.w3.org/2000/svg">
+        <a class="tnd-share__link" href="https://www.facebook.com/groups/minibiebsnederland" target="_blank" rel="nofollow">
+            <!-- <svg class="tnd-icon" height="50" viewBox="0 0 30 30" width="50" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8.3 11.4h3v9.8h-3zM9.8 10.2c-.5 0-.8-.1-1.1-.4s-.5-.7-.5-1.1c0-.4.1-.8.4-1.1s.7-.4 1.2-.4.9.1 1.1.4.4.6.4 1.1c0 .4-.1.8-.4 1.1s-.6.4-1.1.4zM22.4 21.2h-3v-5.4c0-.6-.1-1.1-.4-1.5s-.6-.6-1.2-.6c-.4 0-.7.1-1 .4-.3.2-.4.5-.6.8 0 .1-.1.2-.1.4v6h-3v-6.7-1.7-1.4h2.6l.2 1.3h.1c.2-.3.5-.7 1-1 .5-.4 1.1-.5 2-.5 1 0 1.8.3 2.5 1s1 1.8 1 3.2v5.7z"></path>
+            </svg> -->
+            <svg class="tnd-icon" height="50" viewBox="0 0 30 30" width="50" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.5 10.3h-2.2c-.1 0-.3.1-.4.2-.1.2-.2.4-.2.6v1.6h2.8l-.4 2.3h-2.4v7H13v-7h-2.4v-2.3H13v-1.4c0-1 .3-1.8.9-2.5.6-.7 1.4-1.1 2.3-1.1h2.2v2.6z"></path>
             </svg>
-            <span class="sr-only">LinkedIn</span>
-        </a> -->
+            <span class="sr-only">Facebook</span>
+        </a>
       </div>
     </div>
 

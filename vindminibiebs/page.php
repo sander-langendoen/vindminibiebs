@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main>
+<main class="pb-xl">
 
   <?php if ( function_exists('yoast_breadcrumb') && ! is_front_page() && ! is_home() ) : ?>
     <div class="breadcrumbs container" aria-label="<?php esc_attr_e('Breadcrumbs', 'tnd'); ?>">

@@ -63,11 +63,11 @@
 @use "src/pages/home";
 @use "src/pages/single";
 @use "src/pages/page-404";
-@use "src/pages/over-ons";
 @use "src/pages/single-case-blog";
 @use "src/pages/search";
 @use "src/pages/page-events";
 @use "src/pages/page-over-ons-timeline";
+@use "src/pages/page-wall-of-fame";
 
 
 .wp-block-heading,
@@ -83,7 +83,7 @@ p,
 }
 
 .wp-block-table {
-  margin: 0 auto !important;
+  margin: 0 auto !important; 
 }
 
 .wp-block-list,
@@ -364,30 +364,32 @@ main {
 
 /* padding for mobile and such */
 @media (max-width: 767px) {
-  .tnd-hero-heading__content,
-  .tnd-client-logos,
-  .tnd-expertise-grid,
-  .tnd-page-cta,
-  .breadcrumbs,
-  .wp-block-group.narrow,
-  .tnd-highlight-cards,
-  .site-footer__inner,
-  .tnd-article,
-  .tnd-articles-grid__filter,
-  .tnd-benefit-grid,
-  .tnd-vacancy-cards,
-  .tnd-related-cases__title,
-  .tnd-single-layout__content,
-  .tnd-single-layout__sidebar,
-  .tnd-container,
-  .frm_forms.frm_style_formidable-style.with_frm_style,
-  .tnd-events-grid,
-  .tnd-events__intro h1,
-  .home h1,
-  .home .intro-p,
-  .home-counter-band {
+  main {
+  // .tnd-hero-heading__content,
+  // .tnd-client-logos,
+  // .tnd-expertise-grid,
+  // .tnd-page-cta,
+  // .breadcrumbs,
+  // .wp-block-group.narrow,
+  // .tnd-highlight-cards,
+  // .site-footer__inner,
+  // .tnd-article,
+  // .tnd-articles-grid__filter,
+  // .tnd-benefit-grid,
+  // .tnd-vacancy-cards,
+  // .tnd-related-cases__title,
+  // .tnd-single-layout__content,
+  // .tnd-single-layout__sidebar,
+  // .tnd-container,
+  // .frm_forms.frm_style_formidable-style.with_frm_style,
+  // .tnd-events-grid,
+  // .tnd-events__intro h1,
+  // .home h1,
+  // .home .intro-p,
+  // .home-counter-band {
     padding-right: 30px;
     padding-left: 30px;
+  // }
   }
 }
 

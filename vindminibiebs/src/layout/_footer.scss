@@ -8,6 +8,11 @@ footer {
     @include section-padding();
     background-color: var(--color-white);
 
+    @media (max-width: 767px) {
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+    }
+
     h2:before {
         content: none;
     }
@@ -76,16 +81,16 @@ footer {
         width: 30px;
         height: 30px;
         border-radius: 999em;
-        background: var(--color-white);
+        background: var(--color-brand-1);
         display: flex;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
         color: var(--color-black);
-        transition: background .2s;
+        transition: opacity .2s;
 
         &:hover {
-            background: var(--color-brand-2);
+            opacity: 0.8;
         }
 
         svg {
@@ -94,7 +99,7 @@ footer {
         }
 
         path {
-            fill: var(--color-brand-3);
+            fill: var(--color-white);
         }
     }
 

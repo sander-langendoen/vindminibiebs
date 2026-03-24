@@ -28,7 +28,7 @@
         <article class="tnd-single-layout__content">
 
           <div class="tnd-single-layout__body pb-xl">
-            <?php echo get_field('text_editor'); ?>
+            <?php the_content(); ?>
           </div>
 
           <?php if ( get_the_tags() ) : ?>
@@ -36,6 +36,8 @@
               <?php the_tags('', ', ', ''); ?>
             </div>
           <?php endif; ?>
+
+
         </article>
 
         <aside class="tnd-single-layout__sidebar">
@@ -44,15 +46,12 @@
 
       </div>
 
-      <?php the_content(); ?>
+      
 
       <?php
         if ( is_singular(['post', 'case']) ) {
           get_template_part('template-parts/sections/single-related-content');
         }
-        get_template_part('template-parts/sections/single-contact-cta', null, [
-          'source' => 'post',
-        ]);
       ?>
     </div>
 
